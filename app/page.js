@@ -1,0 +1,552 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+import {
+  Sprout,
+  Leaf,
+  BookOpen,
+  Users,
+  Download,
+  ArrowRight,
+  ChevronDown,
+  Sparkles,
+  CheckCircle2,
+  FileText,
+  Loader2,
+} from 'lucide-react';
+
+// ---------- Tracking helpers ----------
+const trackEvent = async (eventName, metadata = {}) => {
+  try {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', eventName, metadata);
+    }
+  } catch (e) {}
+  try {
+    if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+      window.fbq('trackCustom', eventName, metadata);
+    }
+  } catch (e) {}
+  try {
+    await fetch('/api/track', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ event: eventName, metadata }),
+    });
+  } catch (e) {}
+};
+
+// ---------- Reveal-on-scroll hook ----------
+const useReveal = () => {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return ref;
+};
+
+// ---------- Decorative leaf SVG ----------
+const LeafShape = ({ className = '', opacity = 0.6 }) => (
+  <svg
+    viewBox="0 0 200 220"
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <g fill="currentColor" opacity={opacity}>
+      <path d="M100,5 C115,40 145,50 165,80 C185,115 175,150 145,170 C125,182 105,180 100,178 C95,180 75,182 55,170 C25,150 15,115 35,80 C55,50 85,40 100,5 Z" />
+    </g>
+  </svg>
+);
+
+// ---------- Smooth scroll ----------
+const smoothScrollTo = (id) => {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
+// ---------- Constants ----------
+const PDF_LINKS = {
+  pdf1: { url: '#pdf-01', title: 'Guia de F\u00e9 e Cria\u00e7\u00e3o', size: '2.4 MB', pages: '32 p\u00e1ginas' },
+  pdf2: { url: '#pdf-02', title: 'Manual Cultivar & Guardar', size: '3.1 MB', pages: '48 p\u00e1ginas' },
+  pdf3: { url: '#pdf-03', title: 'Devocional Ecol\u00f3gico', size: '1.8 MB', pages: '24 p\u00e1ginas' },
+};
+
+const MONDAY_FORM_URL =
+  'https://forms.monday.com/forms/embed/9989f9e49933844e6d3ad906b33a62af?r=use1';
+
+// =================================================================
+// HERO
+// =================================================================
+const Hero = () => (
+  <section
+    id="hero"
+    className="relative min-h-screen w-full overflow-hidden texture-olive flex items-center"
+  >
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <LeafShape
+        className="absolute -top-10 -right-20 w-[60vw] md:w-[40vw] text-olive-500"
+        opacity={0.35}
+      />
+      <LeafShape
+        className="absolute -bottom-32 -left-16 w-[70vw] md:w-[35vw] text-olive-600 rotate-45"
+        opacity={0.25}
+      />
+      <div className="absolute inset-0 gradient-radial" />
+    </div>
+
+    {/* Top bar */}
+    <div className="absolute top-0 inset-x-0 z-20 px-6 md:px-12 pt-6 md:pt-8 flex justify-between items-center">
+      <div className="font-gothic text-2xl md:text-3xl text-cream-100 leading-none">
+        IRI<span className="text-olive-300">.</span>
+      </div>
+      <div className="hidden md:flex items-center gap-8 text-cream-100/80 text-xs uppercase tracking-[0.2em] font-pixel">
+        <button onClick={() => smoothScrollTo('quem-somos')} className="hover:text-cream-100 transition">
+          Quem somos
+        </button>
+        <button onClick={() => smoothScrollTo('formulario')} className="hover:text-cream-100 transition">
+          Materiais
+        </button>
+      </div>
+    </div>
+
+    <div className="relative z-10 container mx-auto px-6 md:px-12 py-20 md:py-32">
+      <div className="max-w-4xl">
+        <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 border border-cream-100/20 rounded-full text-cream-100/80 text-xs uppercase tracking-[0.25em] font-pixel animate-fade-in">
+          <Sparkles className="w-3 h-3" />
+          <span>Cultivar &amp; Guardar &middot; 2025</span>
+        </div>
+
+        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-cream-100 mb-8 text-balance animate-fade-in-up">
+          <span className="font-gothic block">Cultivar</span>
+          <span className="italic font-light">&amp; guardar</span>
+          <br />
+          <span className="text-cream-200/70 italic font-light text-3xl md:text-5xl lg:text-6xl">
+            a cria&ccedil;&atilde;o.
+          </span>
+        </h1>
+
+        <p
+          className="font-serif text-lg md:text-2xl text-cream-100/80 max-w-2xl mb-10 leading-relaxed animate-fade-in-up"
+          style={{ animationDelay: '0.2s' }}
+        >
+          Materiais ricos, exclusivos da IRI Brasil, para igrejas e l&iacute;deres que desejam
+          dialogar com as novas gera&ccedil;&otilde;es sobre f&eacute;, ecologia e o cuidado com a casa comum.
+        </p>
+
+        <div
+          className="flex flex-col sm:flex-row gap-4 animate-fade-in-up"
+          style={{ animationDelay: '0.4s' }}
+        >
+          <button
+            onClick={() => {
+              trackEvent('cta_form_clicked', { source: 'hero_primary' });
+              smoothScrollTo('formulario');
+            }}
+            className="btn-premium bg-cream-100 text-olive-900 hover:bg-cream-50 hover:scale-[1.02] hover:shadow-2xl"
+          >
+            Preencher Formul&aacute;rio
+            <ArrowRight className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => {
+              trackEvent('cta_about_clicked', { source: 'hero_secondary' });
+              smoothScrollTo('quem-somos');
+            }}
+            className="btn-premium-ghost"
+          >
+            Quem Somos
+          </button>
+        </div>
+
+        <div className="mt-16 md:mt-24 grid grid-cols-3 gap-4 md:gap-8 max-w-2xl border-t border-cream-100/15 pt-8">
+          <div>
+            <div className="text-cream-100/50 text-[10px] md:text-xs uppercase tracking-[0.2em] font-pixel mb-1">
+              data.
+            </div>
+            <div className="font-pixel text-cream-100 text-2xl md:text-4xl">01nov.</div>
+          </div>
+          <div>
+            <div className="text-cream-100/50 text-[10px] md:text-xs uppercase tracking-[0.2em] font-pixel mb-1">
+              hor&aacute;rio.
+            </div>
+            <div className="font-pixel text-cream-100 text-2xl md:text-4xl">10h&ndash;23h</div>
+          </div>
+          <div>
+            <div className="text-cream-100/50 text-[10px] md:text-xs uppercase tracking-[0.2em] font-pixel mb-1">
+              local.
+            </div>
+            <div className="font-gothic text-cream-100 text-lg md:text-2xl leading-tight">
+              Vergueiro
+              <span className="block text-cream-100/60 text-[10px] font-pixel uppercase tracking-wider mt-1">
+                S&atilde;o Paulo &middot; SP
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button
+      onClick={() => smoothScrollTo('quem-somos')}
+      className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-cream-100/50 hover:text-cream-100 transition animate-subtle-float"
+      aria-label="Rolar para baixo"
+    >
+      <ChevronDown className="w-6 h-6" />
+    </button>
+  </section>
+);
+
+// =================================================================
+// QUEM SOMOS
+// =================================================================
+const QuemSomos = () => {
+  const ref = useReveal();
+
+  const cards = [
+    {
+      icon: Sprout,
+      title: 'Miss\u00e3o',
+      text: 'Lembrar a igreja brasileira de que cultivar e guardar a cria\u00e7\u00e3o n\u00e3o \u00e9 opcional, mas central \u00e0 nossa pr\u00e1tica de f\u00e9.',
+    },
+    {
+      icon: BookOpen,
+      title: 'Vis\u00e3o',
+      text: 'Resgatar a esperan\u00e7a em Cristo diante da crise clim\u00e1tica, mostrando que a f\u00e9 dialoga com a realidade.',
+    },
+    {
+      icon: Users,
+      title: 'Comunidade',
+      text: 'Conectar pastores, l\u00edderes e jovens em torno do chamado b\u00edblico ao cuidado integral com a cria\u00e7\u00e3o.',
+    },
+  ];
+
+  return (
+    <section id="quem-somos" className="relative texture-paper py-24 md:py-36 overflow-hidden">
+      <LeafShape
+        className="absolute -top-20 -right-20 w-[40vw] md:w-[25vw] text-olive-300"
+        opacity={0.5}
+      />
+      <LeafShape
+        className="absolute -bottom-20 -left-20 w-[45vw] md:w-[28vw] text-olive-400 -rotate-45"
+        opacity={0.35}
+      />
+
+      <div ref={ref} className="scroll-reveal container mx-auto px-6 md:px-12 relative">
+        <div className="max-w-3xl mb-16 md:mb-24">
+          <div className="inline-flex items-center gap-2 mb-6 text-olive-700 text-xs uppercase tracking-[0.25em] font-pixel">
+            <Leaf className="w-3 h-3" />
+            <span>Quem somos</span>
+          </div>
+
+          <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-olive-900 mb-8 text-balance">
+            <span className="font-gothic">Por qu&ecirc; esse</span>
+            <br />
+            <span className="italic font-light">movimento importa?</span>
+          </h2>
+
+          <div className="space-y-5 font-serif text-lg md:text-xl text-olive-900/80 leading-relaxed">
+            <p>
+              A crise clim&aacute;tica j&aacute; marca a hist&oacute;ria de uma gera&ccedil;&atilde;o
+              inteira que nasce e cresce em condi&ccedil;&otilde;es ambientais sem precedentes.
+              Esse cen&aacute;rio tem gerado entre os jovens um sentimento coletivo de
+              imp&ocirc;tencia diante do futuro.
+            </p>
+            <p>
+              Por isso, &eacute; urgente que a igreja{' '}
+              <span className="bg-olive-700 text-cream-100 px-2 py-0.5 italic">
+                dialogue com as novas gera&ccedil;&otilde;es
+              </span>{' '}
+              sobre o cuidado com a cria&ccedil;&atilde;o. A miss&atilde;o de cuidar da terra
+              n&atilde;o &eacute; uma pauta externa ao cristianismo: faz parte do nosso chamado
+              b&iacute;blico.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-5 md:gap-8">
+          {cards.map((c, i) => {
+            const Icon = c.icon;
+            return (
+              <div
+                key={i}
+                className="group relative p-8 md:p-10 bg-cream-50/60 backdrop-blur-sm border border-olive-700/15 rounded-sm hover:bg-olive-800 hover:border-olive-900 transition-all duration-500 hover:-translate-y-1"
+              >
+                <div className="absolute top-4 right-4 font-pixel text-olive-700/40 group-hover:text-cream-100/30 text-sm transition">
+                  0{i + 1}
+                </div>
+                <Icon className="w-9 h-9 text-olive-700 group-hover:text-cream-100 transition mb-6" />
+                <h3 className="font-gothic text-3xl md:text-4xl text-olive-900 group-hover:text-cream-100 transition mb-4">
+                  {c.title}
+                </h3>
+                <p className="font-serif text-base md:text-lg text-olive-900/75 group-hover:text-cream-100/85 transition leading-relaxed">
+                  {c.text}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// =================================================================
+// FORM SECTION
+// =================================================================
+const FormSection = ({ onCompleted }) => {
+  const ref = useReveal();
+  const [formLoaded, setFormLoaded] = useState(false);
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (typeof e.origin !== 'string') return;
+      if (!e.origin.includes('monday.com')) return;
+
+      const data = e.data;
+      const dataStr = typeof data === 'string' ? data : JSON.stringify(data || {});
+
+      if (
+        dataStr.includes('submitted') ||
+        dataStr.includes('form-submission') ||
+        dataStr.includes('formSubmitted') ||
+        dataStr.includes('SUBMIT') ||
+        (data && (data.type === 'submitted' || data.event === 'submitted'))
+      ) {
+        trackEvent('form_completed', { method: 'monday_postmessage' });
+        onCompleted();
+      }
+    };
+    window.addEventListener('message', handler);
+    return () => window.removeEventListener('message', handler);
+  }, [onCompleted]);
+
+  return (
+    <section id="formulario" className="relative texture-dark py-24 md:py-36 overflow-hidden">
+      <LeafShape
+        className="absolute top-10 -left-20 w-[45vw] md:w-[22vw] text-olive-500 rotate-12"
+        opacity={0.18}
+      />
+
+      <div ref={ref} className="scroll-reveal container mx-auto px-6 md:px-12 relative">
+        <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+          <div className="inline-flex items-center gap-2 mb-6 text-cream-200/70 text-xs uppercase tracking-[0.25em] font-pixel">
+            <FileText className="w-3 h-3" />
+            <span>Acesso aos materiais</span>
+          </div>
+          <h2 className="font-serif text-4xl md:text-6xl leading-[1.05] text-cream-100 mb-6 text-balance">
+            <span className="font-gothic">Preencha</span>{' '}
+            <span className="italic font-light">e libere</span>
+            <br />
+            seu acesso.
+          </h2>
+          <p className="font-serif text-lg md:text-xl text-cream-100/70 leading-relaxed">
+            Em menos de 1 minuto voc&ecirc; libera o download dos 3 materiais ricos da IRI Brasil.
+          </p>
+        </div>
+
+        <div className="max-w-3xl mx-auto">
+          <div className="relative bg-cream-100 rounded-sm overflow-hidden shadow-2xl border border-olive-300/40">
+            {!formLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center bg-cream-100 z-10">
+                <Loader2 className="w-8 h-8 text-olive-700 animate-spin" />
+              </div>
+            )}
+            <iframe
+              src={MONDAY_FORM_URL}
+              title="Formul\u00e1rio IRI Brasil"
+              onLoad={() => setFormLoaded(true)}
+              className="w-full block"
+              style={{ height: '720px', border: 0 }}
+              allow="clipboard-write"
+            />
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-cream-100/50 text-sm font-serif italic mb-3">
+              J&aacute; preencheu o formul&aacute;rio? Clique abaixo para liberar os downloads.
+            </p>
+            <button
+              onClick={() => {
+                trackEvent('form_completed', { method: 'manual_button' });
+                onCompleted();
+              }}
+              className="btn-premium-ghost"
+            >
+              <CheckCircle2 className="w-4 h-4" />
+              J&aacute; preenchi &mdash; liberar materiais
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// =================================================================
+// DOWNLOADS SECTION
+// =================================================================
+const DownloadsSection = ({ visible }) => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (visible && ref.current) {
+      setTimeout(() => {
+        ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 200);
+    }
+  }, [visible]);
+
+  if (!visible) return null;
+
+  const handleDownload = (key, item) => {
+    trackEvent(`pdf_${key}_download`, { title: item.title });
+    if (item.url && !item.url.startsWith('#')) {
+      window.open(item.url, '_blank', 'noopener,noreferrer');
+    } else {
+      alert(
+        `Download "${item.title}" registrado!\n\nSubstitua o link no arquivo /app/app/page.js (constante PDF_LINKS) pelo URL real do PDF hospedado.`
+      );
+    }
+  };
+
+  return (
+    <section
+      id="downloads"
+      ref={ref}
+      className="relative texture-paper py-24 md:py-36 overflow-hidden animate-fade-in"
+    >
+      <LeafShape
+        className="absolute -top-20 -right-20 w-[45vw] md:w-[25vw] text-olive-400"
+        opacity={0.4}
+      />
+
+      <div className="container mx-auto px-6 md:px-12 relative">
+        <div className="max-w-3xl mx-auto text-center mb-14">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-olive-700 text-cream-100 text-xs uppercase tracking-[0.25em] font-pixel rounded-full animate-fade-in-up">
+            <CheckCircle2 className="w-3 h-3" />
+            <span>Acesso liberado</span>
+          </div>
+
+          <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-olive-900 mb-6 text-balance animate-fade-in-up">
+            <span className="font-gothic">Seu material</span>{' '}
+            <span className="italic font-light">est&aacute; dispon&iacute;vel</span>
+          </h2>
+          <p
+            className="font-serif text-lg md:text-xl text-olive-900/75 leading-relaxed animate-fade-in-up"
+            style={{ animationDelay: '0.15s' }}
+          >
+            Tr&ecirc;s materiais ricos para aprofundar sua jornada de f&eacute;, ecologia e
+            cuidado com a cria&ccedil;&atilde;o.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-5 md:gap-8 max-w-5xl mx-auto">
+          {Object.entries(PDF_LINKS).map(([key, item], i) => (
+            <button
+              key={key}
+              onClick={() => handleDownload(i + 1, item)}
+              className="group text-left relative p-7 md:p-8 bg-olive-900 hover:bg-olive-800 text-cream-100 rounded-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl animate-fade-in-up overflow-hidden"
+              style={{ animationDelay: `${0.2 + i * 0.1}s` }}
+            >
+              <div className="absolute top-3 right-3 font-pixel text-cream-100/30 text-xs">
+                pdf.0{i + 1}
+              </div>
+
+              <div className="w-12 h-14 mb-6 bg-cream-100 text-olive-900 flex items-center justify-center rounded-sm group-hover:rotate-[-4deg] transition-transform">
+                <FileText className="w-6 h-6" />
+              </div>
+
+              <h3 className="font-gothic text-2xl md:text-3xl mb-2 leading-tight">
+                {item.title}
+              </h3>
+              <p className="font-pixel text-cream-200/60 text-xs uppercase tracking-wider mb-6">
+                {item.pages} &middot; {item.size}
+              </p>
+
+              <div className="flex items-center gap-2 text-sm uppercase tracking-[0.15em] font-medium border-t border-cream-100/15 pt-5 group-hover:border-cream-100/30">
+                <Download className="w-4 h-4 group-hover:translate-y-0.5 transition" />
+                <span>Baixar PDF 0{i + 1}</span>
+              </div>
+            </button>
+          ))}
+        </div>
+
+        <p className="text-center mt-12 text-olive-900/60 font-serif italic text-sm">
+          Os arquivos s&atilde;o gratuitos e podem ser compartilhados livremente em sua igreja
+          ou comunidade.
+        </p>
+      </div>
+    </section>
+  );
+};
+
+// =================================================================
+// FOOTER
+// =================================================================
+const Footer = () => (
+  <footer className="texture-olive py-12 md:py-16 border-t border-olive-700/40">
+    <div className="container mx-auto px-6 md:px-12">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div>
+          <div className="font-gothic text-3xl text-cream-100 mb-2">
+            IRI<span className="text-olive-300">.</span>Brasil
+          </div>
+          <p className="font-pixel text-cream-100/50 text-xs uppercase tracking-[0.2em]">
+            Rol&ecirc; em Collab &middot; 2025 &middot; Cultivar &amp; Guardar
+          </p>
+        </div>
+        <div className="text-cream-100/40 text-xs font-pixel uppercase tracking-[0.2em]">
+          &copy; {new Date().getFullYear()} IRI Brasil
+        </div>
+      </div>
+    </div>
+  </footer>
+);
+
+// =================================================================
+// MAIN APP
+// =================================================================
+const App = () => {
+  const [downloadsVisible, setDownloadsVisible] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const completed = sessionStorage.getItem('iri_form_completed');
+      if (completed === '1') setDownloadsVisible(true);
+    }
+  }, []);
+
+  const handleFormCompleted = () => {
+    setDownloadsVisible(true);
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('iri_form_completed', '1');
+    }
+  };
+
+  return (
+    <main className="min-h-screen">
+      <Hero />
+      <QuemSomos />
+      <FormSection onCompleted={handleFormCompleted} />
+      <DownloadsSection visible={downloadsVisible} />
+      <Footer />
+    </main>
+  );
+};
+
+export default App;

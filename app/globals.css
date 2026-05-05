@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 47 50% 95%;
+    --foreground: 70 40% 8%;
+    --card: 47 50% 95%;
+    --card-foreground: 70 40% 8%;
+    --popover: 47 50% 95%;
+    --popover-foreground: 70 40% 8%;
+    --primary: 70 45% 18%;
+    --primary-foreground: 47 50% 95%;
+    --secondary: 50 40% 88%;
+    --secondary-foreground: 70 40% 8%;
+    --muted: 50 30% 90%;
+    --muted-foreground: 70 15% 30%;
+    --accent: 70 45% 25%;
+    --accent-foreground: 47 50% 95%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 47 50% 95%;
+    --border: 50 25% 80%;
+    --input: 50 25% 80%;
+    --ring: 70 45% 25%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-100 text-olive-900 font-sans antialiased;
+    background-image:
+      radial-gradient(at 20% 0%, rgba(125, 122, 46, 0.08) 0px, transparent 50%),
+      radial-gradient(at 80% 100%, rgba(58, 61, 20, 0.08) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  /* Paper / cardboard texture */
+  .texture-paper {
+    background-color: #f5f0d6;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.25  0 0 0 0 0.22  0 0 0 0 0.10  0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-blend-mode: multiply;
+  }
+
+  .texture-dark {
+    background-color: #1c1e08;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95  0 0 0 0 0.92  0 0 0 0 0.78  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  .texture-olive {
+    background-color: #3a3d14;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.18  0 0 0 0 0.20  0 0 0 0 0.05  0 0 0 0.35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  .gradient-overlay {
+    background: linear-gradient(180deg, rgba(28, 30, 8, 0.55) 0%, rgba(28, 30, 8, 0.85) 100%);
+  }
+
+  .gradient-radial {
+    background: radial-gradient(circle at center, rgba(125, 122, 46, 0.25) 0%, transparent 70%);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glitch-text {
+    text-shadow:
+      1px 0 0 rgba(245, 240, 214, 0.3),
+      -1px 0 0 rgba(58, 61, 20, 0.3);
+  }
+
+  .underline-italic {
+    position: relative;
+    display: inline-block;
+    font-style: italic;
+  }
+  .underline-italic::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0.05em;
+    height: 2px;
+    background: currentColor;
+  }
+
+  .btn-premium {
+    @apply relative inline-flex items-center justify-center gap-2 px-7 py-4 text-sm md:text-base font-medium tracking-wide uppercase transition-all duration-300;
+    letter-spacing: 0.08em;
+  }
+
+  .btn-premium-primary {
+    @apply btn-premium bg-olive-700 text-cream-100 hover:bg-olive-800 hover:scale-[1.02] hover:shadow-2xl;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 8px 24px -8px rgba(28,30,8,0.5);
+  }
+
+  .btn-premium-secondary {
+    @apply btn-premium border border-olive-700/30 text-olive-800 hover:bg-olive-700 hover:text-cream-100 hover:border-olive-700;
+  }
+
+  .btn-premium-ghost {
+    @apply btn-premium border border-cream-100/30 text-cream-100 hover:bg-cream-100 hover:text-olive-900;
+    backdrop-filter: blur(4px);
+  }
+
+  /* Leaf shape used as background motif */
+  .leaf-bg {
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><g fill='%23556318' opacity='0.85'><path d='M100,10 C120,40 145,55 160,80 C175,110 165,140 140,155 C120,170 100,165 100,165 C100,165 80,170 60,155 C35,140 25,110 40,80 C55,55 80,40 100,10 Z'/></g></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #f5f0d6; }
+::-webkit-scrollbar-thumb { background: #5a5a1f; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #3a3d14; }

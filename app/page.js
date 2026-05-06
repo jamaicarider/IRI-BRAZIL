@@ -13,6 +13,8 @@ import {
   CheckCircle2,
   FileText,
   Loader2,
+  Play,
+  Globe2,
 } from 'lucide-react';
 
 // ---------- Tracking helpers ----------
@@ -80,10 +82,20 @@ const smoothScrollTo = (id) => {
 };
 
 // ---------- Constants ----------
+// PARA ATIVAR O V\u00cdDEO: substitua null pelo ID do v\u00eddeo do YouTube
+// Ex: const YOUTUBE_VIDEO_ID = 'dQw4w9WgXcQ';
+// Voc\u00ea pega o ID na URL: https://www.youtube.com/watch?v=ESSE_AQUI
+const YOUTUBE_VIDEO_ID = null;
+
+// Imagem poster (usada quando ainda n\u00e3o h\u00e1 v\u00eddeo)
+const CLIMATE_POSTER_IMAGE =
+  'https://images.unsplash.com/photo-1624324378932-68e20f332982?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwyfHxjbGltYXRlJTIwY2hhbmdlfGVufDB8fHx8MTc3ODA4OTM3MXww&ixlib=rb-4.1.0&q=85';
+
 const PDF_LINKS = {
   pdf1: { url: '#pdf-01', title: 'Guia de F\u00e9 e Cria\u00e7\u00e3o', size: '2.4 MB', pages: '32 p\u00e1ginas' },
   pdf2: { url: '#pdf-02', title: 'Manual Cultivar & Guardar', size: '3.1 MB', pages: '48 p\u00e1ginas' },
   pdf3: { url: '#pdf-03', title: 'Devocional Ecol\u00f3gico', size: '1.8 MB', pages: '24 p\u00e1ginas' },
+  pdf4: { url: '#pdf-04', title: 'Liturgia da Cria\u00e7\u00e3o', size: '2.0 MB', pages: '28 p\u00e1ginas' },
 };
 
 const MONDAY_FORM_URL =
@@ -210,6 +222,114 @@ const Hero = () => (
     </button>
   </section>
 );
+
+// =================================================================
+// CLIMATE / VIDEO SECTION
+// =================================================================
+const ClimateSection = () => {
+  const ref = useReveal();
+  const [videoStarted, setVideoStarted] = useState(false);
+
+  const hasVideo = !!YOUTUBE_VIDEO_ID;
+
+  const handlePlay = () => {
+    trackEvent('climate_video_play', { videoId: YOUTUBE_VIDEO_ID || 'placeholder' });
+    if (hasVideo) {
+      setVideoStarted(true);
+    }
+  };
+
+  return (
+    <section
+      id="clima"
+      className="relative texture-paper texture-botanic-accent py-24 md:py-36 overflow-hidden"
+    >
+      <LeafShape
+        className="absolute -top-16 -left-16 w-[35vw] md:w-[20vw] text-olive-400 rotate-12"
+        opacity={0.3}
+      />
+
+      <div ref={ref} className="scroll-reveal container mx-auto px-6 md:px-12 relative">
+        <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+          <div className="inline-flex items-center gap-2 mb-6 text-olive-700 text-xs uppercase tracking-[0.25em] font-pixel">
+            <Globe2 className="w-3 h-3" />
+            <span>O cen&aacute;rio</span>
+          </div>
+          <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-olive-900 mb-6 text-balance">
+            <span className="font-gothic">O clima</span>{' '}
+            <span className="italic font-light">que herdamos.</span>
+          </h2>
+          <p className="font-serif text-lg md:text-xl text-olive-900/75 leading-relaxed">
+            Antes de falar de esperan&ccedil;a, precisamos olhar para a realidade. Assista ao
+            v&iacute;deo e entenda o convite que a IRI Brasil traz para a igreja.
+          </p>
+        </div>
+
+        {/* Video / Poster container */}
+        <div className="relative max-w-5xl mx-auto group">
+          <div className="relative aspect-video rounded-sm overflow-hidden shadow-2xl border border-olive-700/20 bg-olive-900">
+            {hasVideo && videoStarted ? (
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1`}
+                title="O clima que herdamos"
+                allow="accelerated-the-encrypted-media; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            ) : (
+              <>
+                {/* Poster image */}
+                <img
+                  src={
+                    hasVideo
+                      ? `https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/maxresdefault.jpg`
+                      : CLIMATE_POSTER_IMAGE
+                  }
+                  alt="O clima que herdamos"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-olive-900/90 via-olive-900/40 to-olive-900/30" />
+
+                {/* Play button */}
+                <button
+                  onClick={handlePlay}
+                  disabled={!hasVideo}
+                  className={`absolute inset-0 flex items-center justify-center group/play ${
+                    hasVideo ? 'cursor-pointer' : 'cursor-default'
+                  }`}
+                  aria-label={hasVideo ? 'Reproduzir v\u00eddeo' : 'V\u00eddeo em breve'}
+                >
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-full bg-cream-100/30 animate-slow-pulse blur-xl scale-150" />
+                    <div className="relative w-20 h-20 md:w-28 md:h-28 rounded-full bg-cream-100 text-olive-900 flex items-center justify-center transition-transform duration-300 group-hover/play:scale-110 shadow-2xl">
+                      <Play className="w-8 h-8 md:w-12 md:h-12 ml-1" fill="currentColor" />
+                    </div>
+                  </div>
+                </button>
+
+                {/* Bottom label */}
+                <div className="absolute bottom-0 inset-x-0 p-6 md:p-8">
+                  <div className="font-pixel text-cream-100/70 text-xs uppercase tracking-[0.25em] mb-2">
+                    {hasVideo ? 'Documento &middot; IRI Brasil' : 'V\u00eddeo em breve'}
+                  </div>
+                  <div className="font-gothic text-cream-100 text-2xl md:text-4xl leading-tight">
+                    Cultivar &amp; Guardar a cria&ccedil;&atilde;o.
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+
+          {/* Decorative tag */}
+          <div className="hidden md:block absolute -top-4 -right-4 bg-olive-900 text-cream-100 px-4 py-2 font-pixel text-xs uppercase tracking-[0.2em] rotate-3 shadow-lg">
+            assista &middot; 02
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 // =================================================================
 // QUEM SOMOS
@@ -450,12 +570,12 @@ const DownloadsSection = ({ visible }) => {
             className="font-serif text-lg md:text-xl text-olive-900/75 leading-relaxed animate-fade-in-up"
             style={{ animationDelay: '0.15s' }}
           >
-            Tr&ecirc;s materiais ricos para aprofundar sua jornada de f&eacute;, ecologia e
+            Quatro materiais ricos para aprofundar sua jornada de f&eacute;, ecologia e
             cuidado com a cria&ccedil;&atilde;o.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5 md:gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 max-w-6xl mx-auto">
           {Object.entries(PDF_LINKS).map(([key, item], i) => (
             <button
               key={key}
@@ -541,6 +661,7 @@ const App = () => {
   return (
     <main className="min-h-screen">
       <Hero />
+      <ClimateSection />
       <QuemSomos />
       <FormSection onCompleted={handleFormCompleted} />
       <DownloadsSection visible={downloadsVisible} />

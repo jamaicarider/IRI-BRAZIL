@@ -72,7 +72,7 @@
     background-repeat: no-repeat, repeat;
   }
 
-  /* Botanic accent (subtle leaf pattern over cream) */
+  /* Botanic accent: sombra MUITO leve da textura do hero sobre fundo bege */
   .texture-botanic-accent {
     position: relative;
   }
@@ -80,12 +80,18 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('/textures/texture-leaves-2.jpg');
-    background-size: 480px auto;
+    background-image: url('/textures/texture-leaves-1.jpg');
+    background-size: 1100px auto;
+    background-position: center;
     background-repeat: repeat;
-    opacity: 0.07;
+    opacity: 0.13;
     mix-blend-mode: multiply;
     pointer-events: none;
+    z-index: 0;
+  }
+  .texture-botanic-accent > * {
+    position: relative;
+    z-index: 1;
   }
 
   .gradient-overlay {

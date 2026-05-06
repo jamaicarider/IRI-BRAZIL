@@ -110,14 +110,6 @@ const Hero = () => (
     className="relative min-h-screen w-full overflow-hidden texture-olive flex items-center"
   >
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <LeafShape
-        className="absolute -top-10 -right-20 w-[60vw] md:w-[40vw] text-olive-500"
-        opacity={0.35}
-      />
-      <LeafShape
-        className="absolute -bottom-32 -left-16 w-[70vw] md:w-[35vw] text-olive-600 rotate-45"
-        opacity={0.25}
-      />
       <div className="absolute inset-0 gradient-radial" />
     </div>
 
@@ -244,11 +236,6 @@ const ClimateSection = () => {
       id="clima"
       className="relative texture-paper texture-botanic-accent py-24 md:py-36 overflow-hidden"
     >
-      <LeafShape
-        className="absolute -top-16 -left-16 w-[35vw] md:w-[20vw] text-olive-400 rotate-12"
-        opacity={0.3}
-      />
-
       <div ref={ref} className="scroll-reveal container mx-auto px-6 md:px-12 relative">
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
           <div className="inline-flex items-center gap-2 mb-6 text-olive-700 text-xs uppercase tracking-[0.25em] font-pixel">
@@ -356,16 +343,7 @@ const QuemSomos = () => {
   ];
 
   return (
-    <section id="quem-somos" className="relative texture-paper py-24 md:py-36 overflow-hidden">
-      <LeafShape
-        className="absolute -top-20 -right-20 w-[40vw] md:w-[25vw] text-olive-300"
-        opacity={0.5}
-      />
-      <LeafShape
-        className="absolute -bottom-20 -left-20 w-[45vw] md:w-[28vw] text-olive-400 -rotate-45"
-        opacity={0.35}
-      />
-
+    <section id="quem-somos" className="relative texture-paper texture-botanic-accent py-24 md:py-36 overflow-hidden">
       <div ref={ref} className="scroll-reveal container mx-auto px-6 md:px-12 relative">
         <div className="max-w-3xl mb-16 md:mb-24">
           <div className="inline-flex items-center gap-2 mb-6 text-olive-700 text-xs uppercase tracking-[0.25em] font-pixel">
@@ -457,11 +435,6 @@ const FormSection = ({ onCompleted }) => {
 
   return (
     <section id="formulario" className="relative texture-dark py-24 md:py-36 overflow-hidden">
-      <LeafShape
-        className="absolute top-10 -left-20 w-[45vw] md:w-[22vw] text-olive-500 rotate-12"
-        opacity={0.18}
-      />
-
       <div ref={ref} className="scroll-reveal container mx-auto px-6 md:px-12 relative">
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
           <div className="inline-flex items-center gap-2 mb-6 text-cream-200/70 text-xs uppercase tracking-[0.25em] font-pixel">
@@ -548,13 +521,8 @@ const DownloadsSection = ({ visible }) => {
     <section
       id="downloads"
       ref={ref}
-      className="relative texture-paper py-24 md:py-36 overflow-hidden animate-fade-in"
+      className="relative texture-paper texture-botanic-accent py-24 md:py-36 overflow-hidden animate-fade-in"
     >
-      <LeafShape
-        className="absolute -top-20 -right-20 w-[45vw] md:w-[25vw] text-olive-400"
-        opacity={0.4}
-      />
-
       <div className="container mx-auto px-6 md:px-12 relative">
         <div className="max-w-3xl mx-auto text-center mb-14">
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-olive-700 text-cream-100 text-xs uppercase tracking-[0.25em] font-pixel rounded-full animate-fade-in-up">

@@ -1,4 +1,4 @@
-import { Inter, Cormorant_Garamond, UnifrakturCook, VT323 } from 'next/font/google';
+import { Inter, Cormorant_Garamond, Pirata_One, Silkscreen } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 
@@ -16,16 +16,16 @@ const cormorant = Cormorant_Garamond({
   display: 'swap',
 });
 
-const gothic = UnifrakturCook({
+const gothic = Pirata_One({
   subsets: ['latin'],
-  weight: ['700'],
+  weight: ['400'],
   variable: '--font-gothic',
   display: 'swap',
 });
 
-const pixel = VT323({
+const pixel = Silkscreen({
   subsets: ['latin'],
-  weight: ['400'],
+  weight: ['400', '700'],
   variable: '--font-pixel',
   display: 'swap',
 });

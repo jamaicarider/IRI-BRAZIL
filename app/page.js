@@ -448,7 +448,7 @@ const FormSection = ({ onCompleted }) => {
             seu acesso.
           </h2>
           <p className="font-serif text-lg md:text-xl text-cream-100/70 leading-relaxed">
-            Em menos de 1 minuto voc&ecirc; libera o download dos 3 materiais ricos da IRI Brasil.
+            Em menos de 1 minuto voc&ecirc; libera o download dos 4 materiais ricos da IRI Brasil.
           </p>
         </div>
 

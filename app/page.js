@@ -312,7 +312,7 @@ const QuemSomos = () => {
     },
     {
       icon: BookOpen,
-      title: PEQUENO GRUPO',
+      title: 'PEQUENO GRUPO',
       text: 'O material complementar conta com 3 estudos para você aplicar junto ao seu pequeno grupo, ao longo do mês.',
     },
     {

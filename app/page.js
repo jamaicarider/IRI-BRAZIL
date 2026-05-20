@@ -347,7 +347,7 @@ const QuemSomos = () => {
             <p>
               Por isso, &eacute; urgente que a igreja{' '}
               <span className="bg-olive-700 text-cream-100 px-2 py-0.5 italic">
-                dialogue com as novas gera&ccedil;&otilde;es
+                dialogue sobre o cuidado com a criação.
               </span>{' '}
               sobre o cuidado com a cria&ccedil;&atilde;o. A miss&atilde;o de cuidar da terra
               n&atilde;o &eacute; uma pauta externa ao cristianismo: faz parte do nosso chamado
@@ -428,7 +428,7 @@ const FormSection = ({ onCompleted }) => {
             seu acesso.
           </h2>
           <p className="font-serif text-lg md:text-xl text-cream-100/70 leading-relaxed">
-            Em menos de 1 minuto voc&ecirc; libera o download dos 4 materiais ricos da IRI Brasil.
+            Em menos de 1 minuto voc&ecirc; libera o download dos materiais para que você desenvolva a campanha na sua igreja
           </p>
         </div>
 

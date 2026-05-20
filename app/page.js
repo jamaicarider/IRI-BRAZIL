@@ -307,18 +307,18 @@ const QuemSomos = () => {
   const cards = [
     {
       icon: Sprout,
-      title: 'Miss\u00e3o',
-      text: 'Lembrar a igreja brasileira de que cultivar e guardar a cria\u00e7\u00e3o n\u00e3o \u00e9 opcional, mas central \u00e0 nossa pr\u00e1tica de f\u00e9.',
+      title: 'DEVOCIONAL',
+      text: 'Um devocional produzido pelo Ministérios Pão Diário que conta com 30 dias de devocionais para você refletir o papel do seguidor de Jesus em Cultivar e Guardar a criação de Deus..',
     },
     {
       icon: BookOpen,
-      title: 'Vis\u00e3o',
-      text: 'Resgatar a esperan\u00e7a em Cristo diante da crise clim\u00e1tica, mostrando que a f\u00e9 dialoga com a realidade.',
+      title: PEQUENO GRUPO',
+      text: 'O material complementar conta com 3 estudos para você aplicar junto ao seu pequeno grupo, ao longo do mês.',
     },
     {
       icon: Users,
-      title: 'Comunidade',
-      text: 'Conectar pastores, l\u00edderes e jovens em torno do chamado b\u00edblico ao cuidado integral com a cria\u00e7\u00e3o.',
+      title: 'TESTEMUNHAR',
+      text: 'Ao final dos 30 dias queremos te convidar a plantar árvores como forma de testemunho público de que cuidar da criação é um compromisso da igreja de Cristo.',
     },
   ];
 

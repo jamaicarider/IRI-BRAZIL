@@ -148,9 +148,9 @@ const Hero = () => (
           className="font-serif text-lg md:text-2xl text-cream-100/80 max-w-2xl mb-10 leading-relaxed animate-fade-in-up"
           style={{ animationDelay: '0.2s' }}
         >
-          Em tempos de crise climática estamos nos reunindo como povo de Deus;
-          para nos lembrar que Cultivar e Guardar a Criação de Deus é um mandamento.;
-          Durante 30 dias vamos nos dedicar a refletir sobre o papel do crente em desenvolver; a terra de modo que agrade a Deus. Assista o vídeo para conhecer mais a campanha!
+          Em tempos de crise climática estamos nos reunindo como povo de Deus
+          para nos lembrar que Cultivar e Guardar a Criação de Deus é um mandamento.
+          Durante 30 dias vamos nos dedicar a refletir sobre o papel do crente em desenvolver a terra de modo que agrade a Deus. Assista o vídeo para conhecer mais a campanha!
 
         </p>
 

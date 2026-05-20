@@ -180,29 +180,7 @@ const Hero = () => (
         </div>
 
         <div className="mt-16 md:mt-24 grid grid-cols-3 gap-4 md:gap-8 max-w-2xl border-t border-cream-100/15 pt-8">
-          <div>
-            <div className="text-cream-100/50 text-[10px] md:text-xs uppercase tracking-[0.2em] font-pixel mb-1">
-              data.
-            </div>
-            <div className="font-pixel text-cream-100 text-2xl md:text-4xl">01nov.</div>
-          </div>
-          <div>
-            <div className="text-cream-100/50 text-[10px] md:text-xs uppercase tracking-[0.2em] font-pixel mb-1">
-              hor&aacute;rio.
-            </div>
-            <div className="font-pixel text-cream-100 text-2xl md:text-4xl">10h&ndash;23h</div>
-          </div>
-          <div>
-            <div className="text-cream-100/50 text-[10px] md:text-xs uppercase tracking-[0.2em] font-pixel mb-1">
-              local.
-            </div>
-            <div className="font-gothic text-cream-100 text-lg md:text-2xl leading-tight">
-              Vergueiro
-              <span className="block text-cream-100/60 text-[10px] font-pixel uppercase tracking-wider mt-1">
-                S&atilde;o Paulo &middot; SP
-              </span>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>

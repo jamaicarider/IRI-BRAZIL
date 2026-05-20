@@ -137,7 +137,7 @@ const Hero = () => (
 
         <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-cream-100 mb-8 text-balance animate-fade-in-up">
           <span className="font-gothic block">Cultivar</span>
-          <span className="italic font-light">&amp; guardar</span>
+          <span className="italic font-light">&amp; Guardar</span>
           <br />
           <span className="text-cream-200/70 italic font-light text-3xl md:text-5xl lg:text-6xl">
             a cria&ccedil;&atilde;o.
@@ -148,8 +148,10 @@ const Hero = () => (
           className="font-serif text-lg md:text-2xl text-cream-100/80 max-w-2xl mb-10 leading-relaxed animate-fade-in-up"
           style={{ animationDelay: '0.2s' }}
         >
-          Materiais ricos, exclusivos da IRI Brasil, para igrejas e l&iacute;deres que desejam
-          dialogar com as novas gera&ccedil;&otilde;es sobre f&eacute;, ecologia e o cuidado com a casa comum.
+          Em tempos de crise climática estamos nos reunindo como povo de Deus;
+          para nos lembrar que Cultivar e Guardar a Criação de Deus é um mandamento.;
+          Durante 30 dias vamos nos dedicar a refletir sobre o papel do crente em desenvolver; a terra de modo que agrade a Deus. Assista o vídeo para conhecer mais a campanha!
+
         </p>
 
         <div

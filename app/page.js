@@ -349,7 +349,7 @@ const QuemSomos = () => {
               <span className="bg-olive-700 text-cream-100 px-2 py-0.5 italic">
                 dialogue sobre o cuidado com a criação.
               </span>{' '}
-              sobre o cuidado com a cria&ccedil;&atilde;o. A miss&atilde;o de cuidar da terra
+              A miss&atilde;o de cuidar da terra
               n&atilde;o &eacute; uma pauta externa ao cristianismo: faz parte do nosso chamado
               b&iacute;blico.
             </p>
@@ -518,8 +518,7 @@ const DownloadsSection = ({ visible }) => {
             className="font-serif text-lg md:text-xl text-olive-900/75 leading-relaxed animate-fade-in-up"
             style={{ animationDelay: '0.15s' }}
           >
-            Quatro materiais ricos para aprofundar sua jornada de f&eacute;, ecologia e
-            cuidado com a cria&ccedil;&atilde;o.
+            Vamos juntos nessa jornada de fé e, meio ambiente.
           </p>
         </div>
 

@@ -677,7 +677,7 @@ const Footer = () => (
           <img
             src="/logos/soma.png"
             alt="Soma+"
-            className="logo-blend h-20 md:h-28 w-auto"
+            className="logo-blend h-16 md:h-20 w-auto"
           />
           <div className="w-px h-14 md:h-20 bg-cream-100/20" />
           <img

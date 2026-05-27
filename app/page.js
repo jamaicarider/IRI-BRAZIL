@@ -574,7 +574,7 @@ const Footer = () => (
             IRI<span className="text-olive-300">.</span>Brasil
           </div>
           <p className="font-pixel text-cream-100/50 text-xs uppercase tracking-[0.2em]">
-            Uma campanha em parceria com; 2025 &middot;  Movimento Pão Diario.
+            Uma campanha em parceria com  &middot;  Movimento Pão Diario.
           </p>
         </div>
         <div className="text-cream-100/40 text-xs font-pixel uppercase tracking-[0.2em]">

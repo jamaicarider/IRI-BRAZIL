@@ -159,7 +159,7 @@ const Hero = () => (
           style={{ animationDelay: '0.4s' }}
         >
         
-        {/*
+        
           <button
             onClick={() => {
               trackEvent('cta_form_clicked', { source: 'hero_primary' });
@@ -167,10 +167,10 @@ const Hero = () => (
             }}
             className="btn-premium bg-cream-100 text-olive-900 hover:bg-cream-50 hover:scale-[1.02] hover:shadow-2xl"
           >
-            Preencher Formul&aacute;rio
+            Inscreva-se
             <ArrowRight className="w-4 h-4" />
           </button>
-						*/}
+				
           <button
             onClick={() => {
               trackEvent('cta_about_clicked', { source: 'hero_secondary' });

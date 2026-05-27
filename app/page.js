@@ -121,13 +121,13 @@ const Hero = () => (
         <img
           src="/logos/soma.png"
           alt="Soma+"
-          className="logo-blend h-16 md:h-24 w-auto"
+          className="logo-blend h-14 md:h-20 w-auto"
         />
         <div className="w-px h-10 md:h-14 bg-cream-100/25" />
         <img
           src="/logos/pao-diario.png"
           alt="Minist&eacute;rios P&atilde;o Di&aacute;rio"
-          className="logo-blend h-12 md:h-16 w-auto"
+          className="logo-blend h-14 md:h-20 w-auto"
         />
       </div>
       <div className="hidden md:flex items-center gap-8 text-cream-100/80 text-xs uppercase tracking-[0.2em] font-pixel">
@@ -677,13 +677,13 @@ const Footer = () => (
           <img
             src="/logos/soma.png"
             alt="Soma+"
-            className="logo-blend h-24 md:h-32 w-auto"
+            className="logo-blend h-20 md:h-28 w-auto"
           />
           <div className="w-px h-14 md:h-20 bg-cream-100/20" />
           <img
             src="/logos/pao-diario.png"
             alt="Minist&eacute;rios P&atilde;o Di&aacute;rio"
-            className="logo-blend h-16 md:h-24 w-auto"
+            className="logo-blend h-20 md:h-28 w-auto"
           />
         </div>
 

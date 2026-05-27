@@ -92,10 +92,10 @@ const CLIMATE_POSTER_IMAGE =
   'https://images.unsplash.com/photo-1624324378932-68e20f332982?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwyfHxjbGltYXRlJTIwY2hhbmdlfGVufDB8fHx8MTc3ODA4OTM3MXww&ixlib=rb-4.1.0&q=85';
 
 const PDF_LINKS = {
-  pdf1: { url: '#pdf-01', title: 'Guia de F\u00e9 e Cria\u00e7\u00e3o', size: '2.4 MB', pages: '32 p\u00e1ginas' },
-  pdf2: { url: '#pdf-02', title: 'Manual Cultivar & Guardar', size: '3.1 MB', pages: '48 p\u00e1ginas' },
-  pdf3: { url: '#pdf-03', title: 'Devocional Ecol\u00f3gico', size: '1.8 MB', pages: '24 p\u00e1ginas' },
-  pdf4: { url: '#pdf-04', title: 'Liturgia da Cria\u00e7\u00e3o', size: '2.0 MB', pages: '28 p\u00e1ginas' },
+  pdf1: { url: '#pdf-01', title: 'Manual de práticas sustentáveis para igrejas', size: '2.4 MB', pages: '32 p\u00e1ginas' },
+  pdf2: { url: '#pdf-02', title: 'Devocional tempo de cuidar', size: '3.1 MB', pages: '48 p\u00e1ginas' },
+  pdf3: { url: '#pdf-03', title: 'Estudo biblico tempo de cuidar', size: '1.8 MB', pages: '24 p\u00e1ginas' },
+  pdf4: { url: '#pdf-04', title: 'Cartilha de orientacao tempo de cuidar', size: '2.0 MB', pages: '28 p\u00e1ginas' },
 };
 
 const MONDAY_FORM_URL =
@@ -227,8 +227,8 @@ const ClimateSection = () => {
             <span className="italic font-light">que herdamos.</span>
           </h2>
           <p className="font-serif text-lg md:text-xl text-olive-900/75 leading-relaxed">
-            Antes de falar de esperan&ccedil;a, precisamos olhar para a realidade. Assista ao
-            v&iacute;deo e entenda o convite que a IRI Brasil traz para a igreja.
+            Antes de falar de esperan&ccedil;a, precisamos olhar para as Escrituras Sagradas. Assista ao
+            v&iacute;deo e entenda o convite que a Soma traz para a igreja.
           </p>
         </div>
 
@@ -332,7 +332,7 @@ const QuemSomos = () => {
           </div>
 
           <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-olive-900 mb-8 text-balance">
-            <span className="font-gothic">Por qu&ecirc; esse</span>
+            <span className="font-gothic">Por que; esse</span>
             <br />
             <span className="italic font-light">movimento importa?</span>
           </h2>
@@ -574,7 +574,7 @@ const Footer = () => (
             IRI<span className="text-olive-300">.</span>Brasil
           </div>
           <p className="font-pixel text-cream-100/50 text-xs uppercase tracking-[0.2em]">
-            Rol&ecirc; em Collab &middot; 2025 &middot; Cultivar &amp; Guardar
+            Uma campanha em parceria com; 2025 &middot;  Movimento Pão Diario.
           </p>
         </div>
         <div className="text-cream-100/40 text-xs font-pixel uppercase tracking-[0.2em]">

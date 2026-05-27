@@ -613,8 +613,8 @@ const App = () => {
       <Hero />
       <ClimateSection />
       <QuemSomos />
-      <FormSection onCompleted={handleFormCompleted} />
-      <DownloadsSection visible={downloadsVisible} />
+      {/* <FormSection onCompleted={handleFormCompleted} /> */}
+      {/* <DownloadsSection visible={downloadsVisible} /> */}
       <Footer />
     </main>
   );

@@ -15,6 +15,8 @@ import {
   Loader2,
   Play,
   Globe2,
+  Calendar,
+  Clock,
 } from 'lucide-react';
 
 // ---------- Tracking helpers ----------
@@ -115,16 +117,17 @@ const Hero = () => (
 
     {/* Top bar */}
     <div className="absolute top-0 inset-x-0 z-20 px-6 md:px-12 pt-6 md:pt-8 flex justify-between items-center">
-      <div className="font-gothic text-2xl md:text-3xl text-cream-100 leading-none">
-        IRI<span className="text-olive-300">.</span>
+      <div className="font-gothic text-2xl md:text-3xl text-cream-100 leading-none flex items-center gap-3">
+        <img src="/logos/soma.png" alt="Soma+" className="h-8 md:h-10 w-auto" />
       </div>
       <div className="hidden md:flex items-center gap-8 text-cream-100/80 text-xs uppercase tracking-[0.2em] font-pixel">
         <button onClick={() => smoothScrollTo('quem-somos')} className="hover:text-cream-100 transition">
           Quem somos
         </button>
-        <button onClick={() => smoothScrollTo('formulario')} className="hover:text-cream-100 transition">
-          Materiais
+        <button onClick={() => smoothScrollTo('programa-semente')} className="hover:text-cream-100 transition">
+          Inscri&ccedil;&otilde;es
         </button>
+        <img src="/logos/pao-diario.png" alt="Minist\u00e9rios P\u00e3o Di\u00e1rio" className="h-8 md:h-10 w-auto opacity-90" />
       </div>
     </div>
 
@@ -163,7 +166,7 @@ const Hero = () => (
           <button
             onClick={() => {
               trackEvent('cta_form_clicked', { source: 'hero_primary' });
-              smoothScrollTo('formulario');
+              smoothScrollTo('programa-semente');
             }}
             className="btn-premium bg-cream-100 text-olive-900 hover:bg-cream-50 hover:scale-[1.02] hover:shadow-2xl"
           >
@@ -566,18 +569,119 @@ const DownloadsSection = ({ visible }) => {
 };
 
 // =================================================================
+// PROGRAMA SEMENTE \u2014 Aviso de in\u00edcio das inscri\u00e7\u00f5es (1\u00ba de Julho)
+// =================================================================
+const ProgramaSementeSection = () => {
+  const ref = useReveal();
+
+  return (
+    <section
+      id="programa-semente"
+      className="relative texture-paper texture-botanic-accent py-24 md:py-36 overflow-hidden"
+    >
+      <div ref={ref} className="scroll-reveal container mx-auto px-6 md:px-12 relative">
+        <div className="max-w-3xl mx-auto text-center">
+          {/* Eyebrow */}
+          <div className="inline-flex items-center gap-2 mb-8 text-olive-700 text-xs uppercase tracking-[0.25em] font-pixel">
+            <Sprout className="w-3 h-3" />
+            <span>Programa Semente</span>
+          </div>
+
+          {/* Destaque visual */}
+          <div className="inline-flex items-center gap-3 px-5 py-3 mb-10 bg-olive-900 text-cream-100 rounded-sm shadow-xl animate-fade-in-up">
+            <Calendar className="w-4 h-4" />
+            <span className="font-pixel text-xs md:text-sm uppercase tracking-[0.2em]">
+              Inscri&ccedil;&otilde;es abrem em 1&ordm; de Julho
+            </span>
+          </div>
+
+          {/* Headline */}
+          <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-olive-900 mb-8 text-balance">
+            <span className="font-gothic">Em breve</span>{' '}
+            <span className="italic font-light">voc&ecirc; far&aacute;</span>
+            <br />
+            sua inscri&ccedil;&atilde;o.
+          </h2>
+
+          {/* Card com o texto principal */}
+          <div className="relative bg-cream-50/70 backdrop-blur-sm border border-olive-700/15 rounded-sm p-8 md:p-12 text-left shadow-xl">
+            {/* selo lateral */}
+            <div className="absolute -top-3 -left-3 bg-olive-700 text-cream-100 px-3 py-1.5 font-pixel text-[10px] uppercase tracking-[0.2em] rotate-[-3deg] shadow-md">
+              aviso
+            </div>
+
+            <div className="space-y-5 font-serif font-medium text-lg md:text-xl text-olive-900 leading-relaxed">
+              <p>
+                As inscri&ccedil;&otilde;es para o{' '}
+                <span className="bg-olive-700 text-cream-100 px-2 py-0.5 italic font-semibold">
+                  Programa Semente
+                </span>{' '}
+                estar&atilde;o dispon&iacute;veis a partir do dia{' '}
+                <strong className="font-semibold">1&ordm; de Julho</strong>.
+              </p>
+              <p>
+                Estamos preparando tudo para receber voc&ecirc; da melhor forma poss&iacute;vel.
+              </p>
+              <p className="text-olive-900/85">
+                Fique atento(a): assim que abrirem, voc&ecirc; poder&aacute; realizar sua inscri&ccedil;&atilde;o{' '}
+                <span className="italic underline decoration-olive-700/40 underline-offset-4">
+                  diretamente por esta p&aacute;gina
+                </span>
+                .
+              </p>
+            </div>
+
+            {/* contador / data destacada */}
+            <div className="mt-10 pt-6 border-t border-olive-700/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-3 text-olive-700">
+                <Clock className="w-4 h-4" />
+                <span className="font-pixel text-xs uppercase tracking-[0.2em]">
+                  Data de abertura
+                </span>
+              </div>
+              <div className="font-pixel text-olive-900 text-3xl md:text-5xl">
+                01jul.
+              </div>
+            </div>
+          </div>
+
+          <p className="font-serif italic text-olive-900/65 mt-8 text-sm md:text-base">
+            Volte aqui em julho ou siga as redes sociais para o aviso oficial.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// =================================================================
 // FOOTER
 // =================================================================
 const Footer = () => (
   <footer className="texture-olive py-12 md:py-16 border-t border-olive-700/40">
     <div className="container mx-auto px-6 md:px-12">
+      {/* Logos parceiros */}
+      <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 pb-10 md:pb-12 mb-10 md:mb-12 border-b border-cream-100/10">
+        <img
+          src="/logos/soma.png"
+          alt="Soma+"
+          className="h-14 md:h-16 w-auto opacity-95 hover:opacity-100 transition"
+        />
+        <div className="hidden md:block w-px h-12 bg-cream-100/15" />
+        <img
+          src="/logos/pao-diario.png"
+          alt="Minist&eacute;rios P&atilde;o Di&aacute;rio"
+          className="h-12 md:h-14 w-auto opacity-95 hover:opacity-100 transition"
+        />
+      </div>
+
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div>
           <div className="font-gothic text-3xl text-cream-100 mb-2">
             IRI<span className="text-olive-300">.</span>Brasil
           </div>
           <p className="font-pixel text-cream-100/50 text-xs uppercase tracking-[0.2em]">
-            Uma campanha em parceria com  &middot;  Movimento Pão Diario.
+            Uma campanha em parceria com  &middot;  Movimento P&atilde;o Di&aacute;rio.
           </p>
         </div>
         <div className="text-cream-100/40 text-xs font-pixel uppercase tracking-[0.2em]">
@@ -613,7 +717,12 @@ const App = () => {
       <Hero />
       <ClimateSection />
       <QuemSomos />
+      <ProgramaSementeSection />
+      {/* === SE\u00c7\u00d5ES DESATIVADAS (mantidas como hist\u00f3rico/backup) === */}
+      {/* Formul\u00e1rio Monday original (substitu\u00eddo pela se\u00e7\u00e3o "Programa Semente"). */}
+      {/* O componente <FormSection /> continua definido neste arquivo para refer\u00eancia. */}
       {/* <FormSection onCompleted={handleFormCompleted} /> */}
+      {/* Libera\u00e7\u00e3o autom\u00e1tica de downloads ap\u00f3s preenchimento do form (desativada junto). */}
       {/* <DownloadsSection visible={downloadsVisible} /> */}
       <Footer />
     </main>

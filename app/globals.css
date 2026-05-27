@@ -106,6 +106,12 @@
     text-wrap: balance;
   }
 
+  /* Remove fundo preto das logos PNG quando aplicadas sobre fundos escuros */
+  .logo-blend {
+    mix-blend-mode: screen;
+    filter: brightness(1.05) contrast(1.05);
+  }
+
   .glitch-text {
     text-shadow:
       1px 0 0 rgba(245, 240, 214, 0.3),

@@ -121,13 +121,13 @@ const Hero = () => (
         <img
           src="/logos/soma.png"
           alt="Soma+"
-          className="h-14 md:h-20 w-auto"
+          className="logo-blend h-16 md:h-24 w-auto"
         />
         <div className="w-px h-10 md:h-14 bg-cream-100/25" />
         <img
           src="/logos/pao-diario.png"
           alt="Minist&eacute;rios P&atilde;o Di&aacute;rio"
-          className="h-12 md:h-16 w-auto opacity-95"
+          className="logo-blend h-12 md:h-16 w-auto"
         />
       </div>
       <div className="hidden md:flex items-center gap-8 text-cream-100/80 text-xs uppercase tracking-[0.2em] font-pixel">
@@ -347,7 +347,7 @@ const QuemSomos = () => {
           </div>
 
           <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-olive-900 mb-8 text-balance">
-            <span className="font-gothic">Por que; esse</span>
+            <span className="font-gothic">Por que esse</span>
             <br />
             <span className="italic font-light">movimento importa?</span>
           </h2>
@@ -365,7 +365,7 @@ const QuemSomos = () => {
                 dialogue sobre o cuidado com a criação.
               </span>{' '}
               A miss&atilde;o de cuidar da terra
-              n&atilde;o &eacute; uma pauta externa ao cristianismo: faz parte do nosso chamado
+              n&atilde;o &eacute; uma pauta externa ao cristianismo. Faz parte do nosso chamado
               b&iacute;blico.
             </p>
           </div>
@@ -677,13 +677,13 @@ const Footer = () => (
           <img
             src="/logos/soma.png"
             alt="Soma+"
-            className="h-20 md:h-28 w-auto"
+            className="logo-blend h-24 md:h-32 w-auto"
           />
           <div className="w-px h-14 md:h-20 bg-cream-100/20" />
           <img
             src="/logos/pao-diario.png"
             alt="Minist&eacute;rios P&atilde;o Di&aacute;rio"
-            className="h-16 md:h-24 w-auto opacity-95"
+            className="logo-blend h-16 md:h-24 w-auto"
           />
         </div>
 

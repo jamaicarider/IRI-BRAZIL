@@ -117,8 +117,18 @@ const Hero = () => (
 
     {/* Top bar */}
     <div className="absolute top-0 inset-x-0 z-20 px-6 md:px-12 pt-6 md:pt-8 flex justify-between items-center">
-      <div className="font-gothic text-2xl md:text-3xl text-cream-100 leading-none flex items-center gap-3">
-        <img src="/logos/soma.png" alt="Soma+" className="h-8 md:h-10 w-auto" />
+      <div className="flex items-center gap-4 md:gap-6">
+        <img
+          src="/logos/soma.png"
+          alt="Soma+"
+          className="h-12 md:h-14 w-auto"
+        />
+        <div className="w-px h-8 md:h-10 bg-cream-100/25" />
+        <img
+          src="/logos/pao-diario.png"
+          alt="Minist&eacute;rios P&atilde;o Di&aacute;rio"
+          className="h-11 md:h-12 w-auto opacity-95"
+        />
       </div>
       <div className="hidden md:flex items-center gap-8 text-cream-100/80 text-xs uppercase tracking-[0.2em] font-pixel">
         <button onClick={() => smoothScrollTo('quem-somos')} className="hover:text-cream-100 transition">
@@ -127,7 +137,6 @@ const Hero = () => (
         <button onClick={() => smoothScrollTo('programa-semente')} className="hover:text-cream-100 transition">
           Inscri&ccedil;&otilde;es
         </button>
-        <img src="/logos/pao-diario.png" alt="Minist\u00e9rios P\u00e3o Di\u00e1rio" className="h-8 md:h-10 w-auto opacity-90" />
       </div>
     </div>
 
@@ -660,32 +669,29 @@ const ProgramaSementeSection = () => {
 const Footer = () => (
   <footer className="texture-olive py-12 md:py-16 border-t border-olive-700/40">
     <div className="container mx-auto px-6 md:px-12">
-      {/* Logos parceiros */}
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 pb-10 md:pb-12 mb-10 md:mb-12 border-b border-cream-100/10">
-        <img
-          src="/logos/soma.png"
-          alt="Soma+"
-          className="h-14 md:h-16 w-auto opacity-95 hover:opacity-100 transition"
-        />
-        <div className="hidden md:block w-px h-12 bg-cream-100/15" />
-        <img
-          src="/logos/pao-diario.png"
-          alt="Minist&eacute;rios P&atilde;o Di&aacute;rio"
-          className="h-12 md:h-14 w-auto opacity-95 hover:opacity-100 transition"
-        />
-      </div>
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+        {/* Logos parceiros (substituem o IRI.Brasil) */}
+        <div className="flex items-center gap-5 md:gap-7">
+          <img
+            src="/logos/soma.png"
+            alt="Soma+"
+            className="h-16 md:h-20 w-auto"
+          />
+          <div className="w-px h-12 md:h-14 bg-cream-100/20" />
+          <img
+            src="/logos/pao-diario.png"
+            alt="Minist&eacute;rios P&atilde;o Di&aacute;rio"
+            className="h-14 md:h-16 w-auto opacity-95"
+          />
+        </div>
 
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-        <div>
-          <div className="font-gothic text-3xl text-cream-100 mb-2">
-            IRI<span className="text-olive-300">.</span>Brasil
-          </div>
-          <p className="font-pixel text-cream-100/50 text-xs uppercase tracking-[0.2em]">
+        <div className="flex flex-col gap-2 md:items-end">
+          <p className="font-pixel text-cream-100/55 text-xs uppercase tracking-[0.2em]">
             Uma campanha em parceria com  &middot;  Movimento P&atilde;o Di&aacute;rio.
           </p>
-        </div>
-        <div className="text-cream-100/40 text-xs font-pixel uppercase tracking-[0.2em]">
-          &copy; {new Date().getFullYear()} IRI Brasil
+          <div className="text-cream-100/40 text-xs font-pixel uppercase tracking-[0.2em]">
+            &copy; {new Date().getFullYear()} IRI Brasil
+          </div>
         </div>
       </div>
     </div>

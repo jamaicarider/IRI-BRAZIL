@@ -121,7 +121,7 @@ const Hero = () => (
         <img
           src="/logos/soma.png"
           alt="Soma+"
-          className="logo-blend h-14 md:h-20 w-auto"
+          className="logo-blend h-10 md:h-16 w-auto"
         />
         <div className="w-px h-10 md:h-14 bg-cream-100/25" />
         <img

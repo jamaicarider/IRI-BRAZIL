@@ -121,13 +121,13 @@ const Hero = () => (
         <img
           src="/logos/soma.png"
           alt="Soma+"
-          className="h-12 md:h-14 w-auto"
+          className="h-14 md:h-20 w-auto"
         />
-        <div className="w-px h-8 md:h-10 bg-cream-100/25" />
+        <div className="w-px h-10 md:h-14 bg-cream-100/25" />
         <img
           src="/logos/pao-diario.png"
           alt="Minist&eacute;rios P&atilde;o Di&aacute;rio"
-          className="h-11 md:h-12 w-auto opacity-95"
+          className="h-12 md:h-16 w-auto opacity-95"
         />
       </div>
       <div className="hidden md:flex items-center gap-8 text-cream-100/80 text-xs uppercase tracking-[0.2em] font-pixel">
@@ -593,7 +593,7 @@ const ProgramaSementeSection = () => {
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 mb-8 text-olive-700 text-xs uppercase tracking-[0.25em] font-pixel">
             <Sprout className="w-3 h-3" />
-            <span>Programa Semente</span>
+            <span>Tempo de Cuidar</span>
           </div>
 
           {/* Destaque visual */}
@@ -621,22 +621,24 @@ const ProgramaSementeSection = () => {
 
             <div className="space-y-5 font-serif font-medium text-lg md:text-xl text-olive-900 leading-relaxed">
               <p>
-                As inscri&ccedil;&otilde;es para o{' '}
+                As inscri&ccedil;&otilde;es para a campanha{' '}
                 <span className="bg-olive-700 text-cream-100 px-2 py-0.5 italic font-semibold">
-                  Programa Semente
+                  Tempo de Cuidar
                 </span>{' '}
                 estar&atilde;o dispon&iacute;veis a partir do dia{' '}
                 <strong className="font-semibold">1&ordm; de Julho</strong>.
               </p>
               <p>
-                Estamos preparando tudo para receber voc&ecirc; da melhor forma poss&iacute;vel.
+                Voc&ecirc; poder&aacute; inscrever sua{' '}
+                <span className="italic underline decoration-olive-700/40 underline-offset-4">
+                  igreja ou pequeno grupo
+                </span>{' '}
+                diretamente por esta p&aacute;gina.
               </p>
               <p className="text-olive-900/85">
-                Fique atento(a): assim que abrirem, voc&ecirc; poder&aacute; realizar sua inscri&ccedil;&atilde;o{' '}
-                <span className="italic underline decoration-olive-700/40 underline-offset-4">
-                  diretamente por esta p&aacute;gina
-                </span>
-                .
+                Enquanto isso, j&aacute; estamos compartilhando conte&uacute;dos, novidades e
+                informa&ccedil;&otilde;es sobre a campanha em nossas redes sociais. Acompanhe e
+                fique por dentro das pr&oacute;ximas atualiza&ccedil;&otilde;es.
               </p>
             </div>
 
@@ -671,17 +673,17 @@ const Footer = () => (
     <div className="container mx-auto px-6 md:px-12">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         {/* Logos parceiros (substituem o IRI.Brasil) */}
-        <div className="flex items-center gap-5 md:gap-7">
+        <div className="flex items-center gap-5 md:gap-8">
           <img
             src="/logos/soma.png"
             alt="Soma+"
-            className="h-16 md:h-20 w-auto"
+            className="h-20 md:h-28 w-auto"
           />
-          <div className="w-px h-12 md:h-14 bg-cream-100/20" />
+          <div className="w-px h-14 md:h-20 bg-cream-100/20" />
           <img
             src="/logos/pao-diario.png"
             alt="Minist&eacute;rios P&atilde;o Di&aacute;rio"
-            className="h-14 md:h-16 w-auto opacity-95"
+            className="h-16 md:h-24 w-auto opacity-95"
           />
         </div>
 

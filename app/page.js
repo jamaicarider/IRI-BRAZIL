@@ -158,6 +158,8 @@ const Hero = () => (
           className="flex flex-col sm:flex-row gap-4 animate-fade-in-up"
           style={{ animationDelay: '0.4s' }}
         >
+        
+        {/*
           <button
             onClick={() => {
               trackEvent('cta_form_clicked', { source: 'hero_primary' });
@@ -168,6 +170,7 @@ const Hero = () => (
             Preencher Formul&aacute;rio
             <ArrowRight className="w-4 h-4" />
           </button>
+						*/}
           <button
             onClick={() => {
               trackEvent('cta_about_clicked', { source: 'hero_secondary' });

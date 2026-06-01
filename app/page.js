@@ -345,6 +345,14 @@ const QuemSomos = () => {
             <Leaf className="w-3 h-3" />
             <span>Quem somos</span>
           </div>
+          
+           <div className="mb-20 md:mb-24 flex justify-center">
+  <img
+    src="https://drive.google.com/thumbnail?id=1IIifmLV5HQ2REL6ThCcYbRP60rM8hUCL&sz=w3000"
+    alt="Organizações parceiras do Movimento Soma"
+    className="w-full max-w-6xl h-auto object-contain"
+  />
+</div>
 
           <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-olive-900 mb-8 text-balance">
             <span className="font-gothic">Por que esse</span>
@@ -370,13 +378,7 @@ const QuemSomos = () => {
             </p>
           </div>
           
-         <div className="mb-20 md:mb-24 flex justify-center">
-  <img
-    src="https://drive.google.com/thumbnail?id=1IIifmLV5HQ2REL6ThCcYbRP60rM8hUCL&sz=w3000"
-    alt="Organizações parceiras do Movimento Soma"
-    className="w-full max-w-6xl h-auto object-contain"
-  />
-</div>
+        
         </div>
 
         <div className="grid md:grid-cols-3 gap-5 md:gap-8">

@@ -369,6 +369,16 @@ const QuemSomos = () => {
               b&iacute;blico.
             </p>
           </div>
+          
+          <div className="mb-16 md:mb-24">
+  <div className="bg-cream-50/60 backdrop-blur-sm border border-olive-700/15 rounded-sm p-6 md:p-10">
+    <img
+      src="https://drive.google.com/thumbnail?id=1IIifmLV5HQ2REL6ThCcYbRP60rM8hUCL&sz=w2000"
+      alt="Organizações parceiras do Movimento Soma"
+      className="w-full h-auto object-contain"
+    />
+  </div>
+</div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-5 md:gap-8">

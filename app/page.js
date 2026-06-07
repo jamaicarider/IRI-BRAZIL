@@ -699,10 +699,10 @@ const Footer = () => (
 
         <div className="flex flex-col gap-2 md:items-end">
           <p className="font-pixel text-cream-100/55 text-xs uppercase tracking-[0.2em]">
-            Uma campanha em parceria com  &middot;  Movimento P&atilde;o Di&aacute;rio.
+            Juntos somamos esforços para inspirar uma fé que cuida da criação.
           </p>
           <div className="text-cream-100/40 text-xs font-pixel uppercase tracking-[0.2em]">
-            &copy; {new Date().getFullYear()} IRI Brasil
+            &copy; {new Date().getFullYear()}
           </div>
         </div>
       </div>

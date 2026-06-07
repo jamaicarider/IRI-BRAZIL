@@ -162,7 +162,7 @@ const Hero = () => (
         >
           Em tempos de crise climática estamos nos reunindo como povo de Deus
           para nos lembrar que Cultivar e Guardar a Criação de Deus é um mandamento.
-          Durante 30 dias vamos nos dedicar a refletir sobre o papel do crente em desenvolver a terra de modo que agrade a Deus. Assista o vídeo para conhecer mais a campanha!
+          Durante 31 dias vamos nos dedicar a refletir sobre o papel do crente em desenvolver a terra de modo que agrade a Deus. Assista o vídeo para conhecer mais a campanha!
 
         </p>
 
@@ -323,7 +323,7 @@ const QuemSomos = () => {
     {
       icon: Sprout,
       title: 'DEVOCIONAL',
-      text: 'Um devocional produzido pelo Ministérios Pão Diário que conta com 30 dias de devocionais para você refletir o papel do seguidor de Jesus em Cultivar e Guardar a criação de Deus..',
+      text: 'Um devocional produzido pelo Ministérios Pão Diário que conta com 31 dias de devocionais para você refletir o papel do seguidor de Jesus em Cultivar e Guardar a criação de Deus..',
     },
     {
       icon: BookOpen,
@@ -333,7 +333,7 @@ const QuemSomos = () => {
     {
       icon: Users,
       title: 'TESTEMUNHAR',
-      text: 'Ao final dos 30 dias queremos te convidar a plantar árvores como forma de testemunho público de que cuidar da criação é um compromisso da igreja de Cristo.',
+      text: 'Ao final dos 31 dias queremos te convidar a plantar árvores como forma de testemunho público de que cuidar da criação é um compromisso da igreja de Cristo.',
     },
   ];
 

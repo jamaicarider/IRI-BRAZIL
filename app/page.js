@@ -333,21 +333,31 @@ const QuemSomos = () => {
   ];
 
   return (
-    <section id="quem-somos" className="relative texture-paper texture-botanic-accent py-24 md:py-36 overflow-hidden">
-      <div ref={ref} className="scroll-reveal container mx-auto px-6 md:px-12 relative">
-        <div className="max-w-3xl mb-16 md:mb-24">
-          <div className="inline-flex items-center gap-2 mb-6 text-olive-700 text-xs uppercase tracking-[0.25em] font-pixel">
-            <Leaf className="w-3 h-3" />
-            <span>Quem somos</span>
-          </div>
-          
-           <div className="mb-20 md:mb-24 flex justify-center">
-  <img
-    src="https://drive.google.com/thumbnail?id=1IIifmLV5HQ2REL6ThCcYbRP60rM8hUCL&sz=w3000"
-    alt="Organizações parceiras do Movimento Soma"
-    className="w-full max-w-6xl h-auto object-contain"
-  />
-</div>
+    <section
+    id="quem-somos"
+    className="relative texture-paper texture-botanic-accent py-24 md:py-36 overflow-hidden"
+  >
+    <div
+      ref={ref}
+      className="scroll-reveal container mx-auto px-6 md:px-12 relative"
+    >
+
+      {/* Título */}
+      <div className="text-center mb-12 md:mb-16">
+        <div className="inline-flex items-center gap-2 text-olive-700 text-xs uppercase tracking-[0.25em] font-pixel">
+          <Leaf className="w-3 h-3" />
+          <span>Quem somos</span>
+        </div>
+      </div>
+ 				
+        {/* Logos */}
+      <div className="flex justify-center mb-20 md:mb-24">
+        <img
+          src="https://drive.google.com/thumbnail?id=1IIifmLV5HQ2REL6ThCcYbRP60rM8hUCL&sz=w3000"
+          alt="Organizações parceiras do Movimento Soma"
+          className="w-full max-w-6xl h-auto object-contain mx-auto"
+        />
+      </div>
 
           <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-olive-900 mb-8 text-balance">
             <span className="font-gothic">Por que esse</span>
@@ -636,7 +646,7 @@ const ProgramaSementeSection = () => {
               <p>
                 Você poderá inscrever sua{' '}
                 <span className="italic underline decoration-olive-700/40 underline-offset-4">
-                  igreja,seu pequeno grupo, célula, ou grupo universitário
+                  igreja, seu pequeno grupo, célula, ou grupo universitário
                 </span>{' '}
                 diretamente por esta página.
               </p>

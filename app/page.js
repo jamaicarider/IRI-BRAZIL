@@ -676,22 +676,26 @@ const ProgramaSementeSection = () => {
 const Footer = () => (
   <footer className="texture-olive py-12 md:py-16 border-t border-olive-700/40">
     <div className="container mx-auto px-6 md:px-12">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-        {/* Logos parceiros (substituem o IRI.Brasil) */}
-        <div className="flex items-center gap-5 md:gap-8">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+
+        {/* Logo */}
+        <div className="flex items-center">
           <img
             src="/logos/soma.png"
             alt="Soma+"
             className="logo-blend h-16 md:h-20 w-auto"
           />
-         
-
-        <div className="flex flex-col gap-2 md:items-end">
-          <p className="font-pixel text-cream-100/55 text-xs uppercase tracking-[0.2em]">
-            Juntos somamos esforços para inspirar uma fé que cuida da criação.
-          </p>
-          
         </div>
+
+        {/* Texto */}
+        <div className="text-center md:text-right">
+          <p className="font-pixel text-cream-100/55 text-xs uppercase tracking-[0.2em] leading-relaxed max-w-md">
+            Juntos somamos esforços para inspirar uma fé
+            <br />
+            que cuida da criação.
+          </p>
+        </div>
+
       </div>
     </div>
   </footer>

@@ -237,7 +237,7 @@ const ClimateSection = () => {
             <span className="italic font-light">que herdamos.</span>
           </h2>
           <p className="font-serif text-lg md:text-xl text-olive-900/75 leading-relaxed">
-            Antes de falar de esperan&ccedil;a, precisamos olhar para as Escrituras Sagradas. Assista ao
+            Ao falar de esperança, precisamos olhar para as Escrituras Sagradas. Assista ao
             v&iacute;deo e entenda o convite que a Soma traz para a igreja.
           </p>
         </div>
@@ -328,7 +328,7 @@ const QuemSomos = () => {
     {
       icon: Users,
       title: 'TESTEMUNHAR',
-      text: 'Ao final dos 31 dias queremos te convidar a plantar árvores como forma de testemunho público de que cuidar da criação é um compromisso da igreja de Cristo.',
+      text: 'Durante a campanha queremos te convidar a plantar árvores como forma de testemunho público de que cuidar da criação é um compromisso da igreja de Cristo.',
     },
   ];
 
@@ -367,7 +367,7 @@ const QuemSomos = () => {
               <span className="bg-olive-700 text-cream-100 px-2 py-0.5 italic">
                 dialogue sobre o cuidado com a criação.
               </span>{' '}
-              A miss&atilde;o de cuidar da terra
+              A missão de cuidar da da natureza
               n&atilde;o &eacute; uma pauta externa ao cristianismo. Faz parte do nosso chamado
               b&iacute;blico.
             </p>
@@ -634,11 +634,11 @@ const ProgramaSementeSection = () => {
                 <strong className="font-semibold">1&ordm; de Julho</strong>.
               </p>
               <p>
-                Voc&ecirc; poder&aacute; inscrever sua{' '}
+                Você poderá inscrever sua{' '}
                 <span className="italic underline decoration-olive-700/40 underline-offset-4">
-                  igreja ou pequeno grupo
+                  igreja,seu pequeno grupo, célula, ou grupo universitário
                 </span>{' '}
-                diretamente por esta p&aacute;gina.
+                diretamente por esta página.
               </p>
               <p className="text-olive-900/85">
                 Enquanto isso, j&aacute; estamos compartilhando conte&uacute;dos, novidades e
@@ -690,9 +690,7 @@ const Footer = () => (
         {/* Texto */}
         <div className="text-center md:text-right">
           <p className="font-pixel text-cream-100/55 text-xs uppercase tracking-[0.2em] leading-relaxed max-w-md">
-            Juntos somamos esforços para inspirar uma fé
-            <br />
-            que cuida da criação.
+            Juntos somamos esforços para inspirar uma fé que cuida da criação.
           </p>
         </div>
 

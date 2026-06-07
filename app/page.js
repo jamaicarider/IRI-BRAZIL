@@ -123,14 +123,7 @@ const Hero = () => (
           alt="Soma+"
           className="logo-blend h-10 md:h-16 w-auto"
         />
-        /*
-        <div className="w-px h-10 md:h-14 bg-cream-100/25" />
-        <img
-          src="/logos/pao-diario.png"
-          alt="Minist&eacute;rios P&atilde;o Di&aacute;rio"
-          className="logo-blend h-14 md:h-20 w-auto"
-        />
-        */
+      
       </div>
       <div className="hidden md:flex items-center gap-8 text-cream-100/80 text-xs uppercase tracking-[0.2em] font-pixel">
         <button onClick={() => smoothScrollTo('quem-somos')} className="hover:text-cream-100 transition">

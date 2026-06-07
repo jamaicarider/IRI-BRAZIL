@@ -684,23 +684,13 @@ const Footer = () => (
             alt="Soma+"
             className="logo-blend h-16 md:h-20 w-auto"
           />
-          /*
-          <div className="w-px h-14 md:h-20 bg-cream-100/20" />
-          <img
-            src="/logos/pao-diario.png"
-            alt="Minist&eacute;rios P&atilde;o Di&aacute;rio"
-            className="logo-blend h-20 md:h-28 w-auto"
-          />
-        </div>
-					*/
+         
 
         <div className="flex flex-col gap-2 md:items-end">
           <p className="font-pixel text-cream-100/55 text-xs uppercase tracking-[0.2em]">
             Juntos somamos esforços para inspirar uma fé que cuida da criação.
           </p>
-          <div className="text-cream-100/40 text-xs font-pixel uppercase tracking-[0.2em]">
-            &copy; {new Date().getFullYear()}
-          </div>
+          
         </div>
       </div>
     </div>

@@ -359,7 +359,7 @@ const QuemSomos = () => {
   />
 </div>
 
-<div className="max-w-3xl mx-auto">
+<div className="max-w-3xl mx-auto mb-20 md:mb-24">
   <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-olive-900 mb-8 text-balance">
     <span className="font-gothic">Por que esse</span>
     <br />
@@ -367,27 +367,22 @@ const QuemSomos = () => {
   </h2>
 
   <div className="space-y-5 font-serif text-lg md:text-xl text-olive-900/80 leading-relaxed">
+    <p>
+      A crise climática já marca a história de uma geração inteira que nasce e cresce em condições ambientais sem precedentes.
+      Esse cenário tem gerado entre os jovens um sentimento coletivo de impotência diante do futuro.
+    </p>
 
-          <div className="space-y-5 font-serif text-lg md:text-xl text-olive-900/80 leading-relaxed">
-            <p>
-              A crise clim&aacute;tica j&aacute; marca a hist&oacute;ria de uma gera&ccedil;&atilde;o
-              inteira que nasce e cresce em condi&ccedil;&otilde;es ambientais sem precedentes.
-              Esse cen&aacute;rio tem gerado entre os jovens um sentimento coletivo de
-              imp&ocirc;tencia diante do futuro.
-            </p>
-            <p>
-              Por isso, &eacute; urgente que a igreja{' '}
-              <span className="bg-olive-700 text-cream-100 px-2 py-0.5 italic">
-                dialogue sobre o cuidado com a criação.
-              </span>{' '}
-              A missão de cuidar da da natureza
-              n&atilde;o &eacute; uma pauta externa ao cristianismo. Faz parte do nosso chamado
-              b&iacute;blico.
-            </p>
+    <p>
+      Por isso, é urgente que a igreja{' '}
+      <span className="bg-olive-700 text-cream-100 px-2 py-0.5 italic">
+        dialogue sobre o cuidado com a criação.
+      </span>{' '}
+      A missão de cuidar da natureza não é uma pauta externa ao cristianismo.
+      Faz parte do nosso chamado bíblico.
+    </p>
+  </div>
+</div>
         
-          
-        
-        </div>
 
         <div className="grid md:grid-cols-3 gap-5 md:gap-8">
           {cards.map((c, i) => {

@@ -384,7 +384,7 @@ const QuemSomos = () => {
               n&atilde;o &eacute; uma pauta externa ao cristianismo. Faz parte do nosso chamado
               b&iacute;blico.
             </p>
-          </div>
+        
           
         
         </div>

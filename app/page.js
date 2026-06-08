@@ -350,20 +350,23 @@ const QuemSomos = () => {
         </div>
       </div>
  				
-        {/* Logos */}
-      <div className="flex justify-center mb-20 md:mb-24">
-        <img
-          src="https://drive.google.com/thumbnail?id=1IIifmLV5HQ2REL6ThCcYbRP60rM8hUCL&sz=w3000"
-          alt="Organizações parceiras do Movimento Soma"
-          className="w-full max-w-6xl h-auto object-contain mx-auto"
-        />
-      </div>
+       {/* Logos */}
+<div className="flex justify-center mb-20 md:mb-24">
+  <img
+    src="https://drive.google.com/thumbnail?id=1IIifmLV5HQ2REL6ThCcYbRP60rM8hUCL&sz=w3000"
+    alt="Organizações parceiras do Movimento Soma"
+    className="w-full max-w-6xl h-auto object-contain mx-auto"
+  />
+</div>
 
-          <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-olive-900 mb-8 text-balance">
-            <span className="font-gothic">Por que esse</span>
-            <br />
-            <span className="italic font-light">movimento importa?</span>
-          </h2>
+<div className="max-w-3xl mx-auto">
+  <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-olive-900 mb-8 text-balance">
+    <span className="font-gothic">Por que esse</span>
+    <br />
+    <span className="italic font-light">movimento importa?</span>
+  </h2>
+
+  <div className="space-y-5 font-serif text-lg md:text-xl text-olive-900/80 leading-relaxed">
 
           <div className="space-y-5 font-serif text-lg md:text-xl text-olive-900/80 leading-relaxed">
             <p>

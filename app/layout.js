@@ -36,9 +36,9 @@ const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || '000000000000000'
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'IRI Brasil — Cultivar & Guardar | Soma+ 2025',
+  title: ' Soma+ — Cultivar & Guardar ',
   description:
-    'Conteúdos exclusivos da IRI Brasil para igrejas e líderes que desejam cultivar e guardar a criação. Baixe materiais ricos sobre fé, ecologia e missão integral.',
+    'Conteúdos exclusivos para igrejas e líderes que desejam cultivar e guardar a criação. Baixe materiais ricos sobre fé, ecologia e missão integral.',
   keywords: [
     'IRI Brasil',
     'Soma+',
@@ -48,19 +48,19 @@ export const metadata = {
     'criação',
     'igreja e meio ambiente',
   ],
-  authors: [{ name: 'IRI Brasil' }],
+  authors: [{ name: 'Soma+' }],
   openGraph: {
-    title: 'IRI Brasil — Cultivar & Guardar',
+    title: 'Soma+ — Cultivar & Guardar',
     description:
       'Materiais ricos e exclusivos sobre fé, ecologia e cuidado com a criação. Baixe agora.',
     url: SITE_URL,
-    siteName: 'IRI Brasil',
+    siteName: 'Soma+',
     locale: 'pt_BR',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IRI Brasil — Cultivar & Guardar',
+    title: 'Soma+ — Cultivar & Guardar',
     description: 'Materiais ricos e exclusivos sobre fé, ecologia e cuidado com a criação.',
   },
   robots: {
@@ -80,10 +80,10 @@ export default function RootLayout({ children }) {
   const schemaOrg = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'IRI Brasil',
+    name: 'Soma+',
     url: SITE_URL,
     description:
-      'IRI Brasil — promovendo o diálogo entre fé cristã e cuidado com a criação.',
+      'Soma+ — promovendo o diálogo entre fé cristã e cuidado com a criação.',
     sameAs: [],
   };
 

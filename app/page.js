@@ -87,7 +87,7 @@ const smoothScrollTo = (id) => {
 // PARA ATIVAR O V\u00cdDEO: substitua null pelo ID do v\u00eddeo do YouTube
 // Ex: const YOUTUBE_VIDEO_ID = 'dQw4w9WgXcQ';
 // Voc\u00ea pega o ID na URL: https://www.youtube.com/watch?v=ESSE_AQUI
-const YOUTUBE_VIDEO_ID = null;
+const YOUTUBE_VIDEO_ID = 'CyPEvgzoM24';
 
 // Imagem poster (usada quando ainda n\u00e3o h\u00e1 v\u00eddeo)
 const CLIMATE_POSTER_IMAGE =

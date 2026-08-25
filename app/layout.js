@@ -93,7 +93,7 @@ export default function RootLayout({ children }) {
       className={`${inter.variable} ${cormorant.variable} ${gothic.variable} ${pixel.variable}`}
     >
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logos/Soma_s.png" type="image/png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}

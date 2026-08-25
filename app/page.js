@@ -94,10 +94,10 @@ const CLIMATE_POSTER_IMAGE =
   'https://images.unsplash.com/photo-1624324378932-68e20f332982?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwyfHxjbGltYXRlJTIwY2hhbmdlfGVufDB8fHx8MTc3ODA4OTM3MXww&ixlib=rb-4.1.0&q=85';
 
 const PDF_LINKS = {
-  pdf1: { url: '#pdf-01', title: 'Manual de práticas sustentáveis para igrejas', size: '2.4 MB', pages: '32 p\u00e1ginas' },
-  pdf2: { url: '#pdf-02', title: 'Devocional tempo de cuidar', size: '3.1 MB', pages: '48 p\u00e1ginas' },
-  pdf3: { url: '#pdf-03', title: 'Estudo biblico tempo de cuidar', size: '1.8 MB', pages: '24 p\u00e1ginas' },
-  pdf4: { url: '#pdf-04', title: 'Cartilha de orientacao tempo de cuidar', size: '2.0 MB', pages: '28 p\u00e1ginas' },
+  pdf1: { url: '/pdfs/manual_de_práticas_sustentáveis_para igrejas.pdf', title: 'Manual de práticas sustentáveis para igrejas', size: '2.4 MB', pages: '32 p\u00e1ginas' },
+  pdf2: { url: '/pdfs/devocional_tempo_de_cuidar.pdf', title: 'Devocional tempo de cuidar', size: '3.1 MB', pages: '48 p\u00e1ginas' },
+  pdf3: { url: '/pdfs/estudo_biblico_tempo_de_cuidar.pdf', title: 'Estudo biblico tempo de cuidar', size: '1.8 MB', pages: '24 p\u00e1ginas' },
+  pdf4: { url: '/pdfs/cartilha_de_orientacao_tempo_de_cuidar.pdf', title: 'Cartilha de orientacao tempo de cuidar', size: '2.0 MB', pages: '28 p\u00e1ginas' },
 };
 
 const MONDAY_FORM_URL =
@@ -436,7 +436,6 @@ const FormSection = ({ onCompleted }) => {
         (data && (data.type === 'submitted' || data.event === 'submitted'))
       ) {
         trackEvent('form_completed', { method: 'monday_postmessage' });
-        onCompleted();
       }
     };
     window.addEventListener('message', handler);
@@ -481,11 +480,12 @@ const FormSection = ({ onCompleted }) => {
 
           <div className="mt-8 text-center">
             <p className="text-cream-100/50 text-sm font-serif italic mb-3">
-              J&aacute; preencheu o formul&aacute;rio? Clique abaixo para liberar os downloads.
+              Preencha e envie o formul&aacute;rio para liberar os materiais.
             </p>
             <button
+              type="button"
               onClick={() => {
-                trackEvent('form_completed', { method: 'manual_button' });
+                trackEvent('materials_reveal_clicked');
                 onCompleted();
               }}
               className="btn-premium-ghost"
@@ -518,13 +518,6 @@ const DownloadsSection = ({ visible }) => {
 
   const handleDownload = (key, item) => {
     trackEvent(`pdf_${key}_download`, { title: item.title });
-    if (item.url && !item.url.startsWith('#')) {
-      window.open(item.url, '_blank', 'noopener,noreferrer');
-    } else {
-      alert(
-        `Download "${item.title}" registrado!\n\nSubstitua o link no arquivo /app/app/page.js (constante PDF_LINKS) pelo URL real do PDF hospedado.`
-      );
-    }
   };
 
   return (
@@ -554,8 +547,10 @@ const DownloadsSection = ({ visible }) => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 max-w-6xl mx-auto">
           {Object.entries(PDF_LINKS).map(([key, item], i) => (
-            <button
+            <a
               key={key}
+              href={item.url}
+              download
               onClick={() => handleDownload(i + 1, item)}
               className="group text-left relative p-7 md:p-8 bg-olive-900 hover:bg-olive-800 text-cream-100 rounded-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl animate-fade-in-up overflow-hidden"
               style={{ animationDelay: `${0.2 + i * 0.1}s` }}
@@ -579,7 +574,7 @@ const DownloadsSection = ({ visible }) => {
                 <Download className="w-4 h-4 group-hover:translate-y-0.5 transition" />
                 <span>Baixar PDF 0{i + 1}</span>
               </div>
-            </button>
+            </a>
           ))}
         </div>
 
@@ -710,18 +705,8 @@ const Footer = () => (
 const App = () => {
   const [downloadsVisible, setDownloadsVisible] = useState(false);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const completed = sessionStorage.getItem('iri_form_completed');
-      if (completed === '1') setDownloadsVisible(true);
-    }
-  }, []);
-
   const handleFormCompleted = () => {
     setDownloadsVisible(true);
-    if (typeof window !== 'undefined') {
-      sessionStorage.setItem('iri_form_completed', '1');
-    }
   };
 
   return (

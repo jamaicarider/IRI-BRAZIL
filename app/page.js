@@ -129,7 +129,9 @@ const Hero = () => (
         <button onClick={() => smoothScrollTo('quem-somos')} className="hover:text-cream-100 transition">
           Quem somos
         </button>
-        <button onClick={() => smoothScrollTo('programa-semente')} className="hover:text-cream-100 transition">
+        {/* Antes apontava para 'programa-semente' (seção "em breve", agora arquivada). */}
+        {/* Agora aponta para 'formulario', que é a seção ativa de inscrição/materiais. */}
+        <button onClick={() => smoothScrollTo('formulario')} className="hover:text-cream-100 transition">
           Inscri&ccedil;&otilde;es
         </button>
       </div>
@@ -170,7 +172,7 @@ const Hero = () => (
           <button
             onClick={() => {
               trackEvent('cta_form_clicked', { source: 'hero_primary' });
-              smoothScrollTo('programa-semente');
+              smoothScrollTo('formulario');
             }}
             className="btn-premium bg-cream-100 text-olive-900 hover:bg-cream-50 hover:scale-[1.02] hover:shadow-2xl"
           >
@@ -250,7 +252,7 @@ const ClimateSection = () => {
                 className="absolute inset-0 w-full h-full"
                 src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1`}
                 title="O clima que herdamos"
-                allow="accelerated-the-encrypted-media; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />
             ) : (
@@ -592,24 +594,23 @@ const DownloadsSection = ({ visible }) => {
 
 // =================================================================
 // PROGRAMA SEMENTE \u2014 Aviso de in\u00edcio das inscri\u00e7\u00f5es (1\u00ba de Julho)
+// === SEÇÃO ARQUIVADA ===
+// Estava ativa no lugar do formulário enquanto as inscrições ainda não haviam aberto.
+// Mantida aqui comentada, como histórico, caso precise reativar esse aviso de "em breve" no futuro.
 // =================================================================
 const ProgramaSementeSection = () => {
-  const ref = useReveal();
-
   return (
     <section
       id="programa-semente"
       className="relative texture-paper texture-botanic-accent py-24 md:py-36 overflow-hidden"
     >
-      <div ref={ref} className="scroll-reveal container mx-auto px-6 md:px-12 relative">
+      <div className="container mx-auto px-6 md:px-12 relative">
         <div className="max-w-3xl mx-auto text-center">
-          {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 mb-8 text-olive-700 text-xs uppercase tracking-[0.25em] font-pixel">
             <Sprout className="w-3 h-3" />
             <span>Tempo de Cuidar</span>
           </div>
 
-          {/* Destaque visual */}
           <div className="inline-flex items-center gap-3 px-5 py-3 mb-10 bg-olive-900 text-cream-100 rounded-sm shadow-xl animate-fade-in-up">
             <Calendar className="w-4 h-4" />
             <span className="font-pixel text-xs md:text-sm uppercase tracking-[0.2em]">
@@ -617,7 +618,6 @@ const ProgramaSementeSection = () => {
             </span>
           </div>
 
-          {/* Headline */}
           <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-olive-900 mb-8 text-balance">
             <span className="font-gothic">Em breve</span>{' '}
             <span className="italic font-light">voc&ecirc; far&aacute;</span>
@@ -625,9 +625,7 @@ const ProgramaSementeSection = () => {
             sua inscri&ccedil;&atilde;o.
           </h2>
 
-          {/* Card com o texto principal */}
           <div className="relative bg-cream-50/70 backdrop-blur-sm border border-olive-700/15 rounded-sm p-8 md:p-12 text-left shadow-xl">
-            {/* selo lateral */}
             <div className="absolute -top-3 -left-3 bg-olive-700 text-cream-100 px-3 py-1.5 font-pixel text-[10px] uppercase tracking-[0.2em] rotate-[-3deg] shadow-md">
               aviso
             </div>
@@ -655,7 +653,6 @@ const ProgramaSementeSection = () => {
               </p>
             </div>
 
-            {/* contador / data destacada */}
             <div className="mt-10 pt-6 border-t border-olive-700/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex items-center gap-3 text-olive-700">
                 <Clock className="w-4 h-4" />
@@ -733,12 +730,8 @@ const App = () => {
       <ClimateSection />
       <QuemSomos />
       <ProgramaSementeSection />
-      {/* === SE\u00c7\u00d5ES DESATIVADAS (mantidas como hist\u00f3rico/backup) === */}
-      {/* Formul\u00e1rio Monday original (substitu\u00eddo pela se\u00e7\u00e3o "Programa Semente"). */}
-      {/* O componente <FormSection /> continua definido neste arquivo para refer\u00eancia. */}
-      {/* <FormSection onCompleted={handleFormCompleted} /> */}
-      {/* Libera\u00e7\u00e3o autom\u00e1tica de downloads ap\u00f3s preenchimento do form (desativada junto). */}
-      {/* <DownloadsSection visible={downloadsVisible} /> */}
+      <FormSection onCompleted={handleFormCompleted} />
+      <DownloadsSection visible={downloadsVisible} />
       <Footer />
     </main>
   );

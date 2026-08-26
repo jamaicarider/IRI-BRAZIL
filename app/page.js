@@ -429,10 +429,17 @@ const QuemSomos = () => {
 const FormSection = ({ onCompleted }) => {
   const ref = useReveal();
   const [formLoaded, setFormLoaded] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   useEffect(() => {
     const handler = (e) => {
       if (typeof e.origin !== 'string') return;
+
+      if (e.origin === 'https://movimentosoma.com' && e.data === 'soma-form-enviado') {
+        setFormSubmitted(true);
+        return;
+      }
+
       if (!e.origin.includes('monday.com')) return;
 
       const data = e.data;
@@ -494,11 +501,15 @@ const FormSection = ({ onCompleted }) => {
             </p>
             <button
               type="button"
+              id="btn-liberar-materiais"
+              disabled={!formSubmitted}
               onClick={() => {
                 trackEvent('materials_reveal_clicked');
                 onCompleted();
               }}
-              className="btn-premium-ghost"
+              className={`btn-premium-ghost ${
+                formSubmitted ? '' : 'opacity-50 cursor-not-allowed'
+              }`}
             >
               <CheckCircle2 className="w-4 h-4" />
               J&aacute; preenchi &mdash; liberar materiais

@@ -106,10 +106,10 @@ const CLIMATE_POSTER_IMAGE =
   'https://images.unsplash.com/photo-1624324378932-68e20f332982?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwyfHxjbGltYXRlJTIwY2hhbmdlfGVufDB8fHx8MTc3ODA4OTM3MXww&ixlib=rb-4.1.0&q=85';
 
 const PDF_LINKS = {
-  pdf1: { url: '/pdfs/manual_de_práticas_sustentáveis_para igrejas.pdf', title: 'Manual de práticas sustentáveis para igrejas', size: '2.4 MB', pages: '32 p\u00e1ginas' },
-  pdf2: { url: '/pdfs/devocional_tempo_de_cuidar.pdf', title: 'Devocional tempo de cuidar', size: '3.1 MB', pages: '48 p\u00e1ginas' },
-  pdf3: { url: '/pdfs/estudo_biblico_tempo_de_cuidar.pdf', title: 'Estudo biblico tempo de cuidar', size: '1.8 MB', pages: '24 p\u00e1ginas' },
-  pdf4: { url: '/pdfs/cartilha_de_orientacao_tempo_de_cuidar.pdf', title: 'Cartilha de orientacao tempo de cuidar', size: '2.0 MB', pages: '28 p\u00e1ginas' },
+  pdf2: { url: '/pdfs/devocional_tempo_de_cuidar.pdf', title: 'Devocional tempo de cuidar', size: '1.1 MB', pages: '34 paginas' },
+  pdf3: { url: '/pdfs/estudo_biblico_tempo_de_cuidar.pdf', title: 'Estudo biblico tempo de cuidar', size: '3.8 MB', pages: '29 paginas' },
+  pdf4: { url: '/pdfs/cartilha_de_orientacao_tempo_de_cuidar.pdf', title: 'Cartilha de orientacao tempo de cuidar', size: '4.8 MB', pages: '20 paginas' },
+   pdf1: { url: '/pdfs/manual_de_práticas_sustentáveis_para igrejas.pdf', title: 'Manual de práticas sustentáveis para igrejas', size: '58.2 MB', pages: '52 paginas' },
 };
 
 const MONDAY_FORM_URL =
@@ -561,6 +561,8 @@ const DownloadsSection = ({ visible }) => {
               key={key}
               href={item.url}
               download
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => handleDownload(i + 1, item)}
               className="group text-left relative p-7 md:p-8 bg-olive-900 hover:bg-olive-800 text-cream-100 rounded-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl animate-fade-in-up overflow-hidden"
               style={{ animationDelay: `${0.2 + i * 0.1}s` }}

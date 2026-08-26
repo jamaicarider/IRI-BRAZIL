@@ -15,8 +15,6 @@ import {
   Loader2,
   Play,
   Globe2,
-  Calendar,
-  Clock,
 } from 'lucide-react';
 
 // ---------- Tracking helpers ----------
@@ -143,8 +141,6 @@ const Hero = () => (
         <button onClick={() => smoothScrollTo('quem-somos')} className="hover:text-cream-100 transition">
           Quem somos
         </button>
-        {/* Antes apontava para 'programa-semente' (seção "em breve", agora arquivada). */}
-        {/* Agora aponta para 'formulario', que é a seção ativa de inscrição/materiais. */}
         <button onClick={() => smoothScrollTo('formulario')} className="hover:text-cream-100 transition">
           Inscri&ccedil;&otilde;es
         </button>
@@ -602,89 +598,6 @@ const DownloadsSection = ({ visible }) => {
 };
 
 // =================================================================
-// PROGRAMA SEMENTE \u2014 Aviso de in\u00edcio das inscri\u00e7\u00f5es (1\u00ba de Julho)
-// === SEÇÃO ARQUIVADA ===
-// Estava ativa no lugar do formulário enquanto as inscrições ainda não haviam aberto.
-// Mantida aqui comentada, como histórico, caso precise reativar esse aviso de "em breve" no futuro.
-// =================================================================
-const ProgramaSementeSection = () => {
-  return (
-    <section
-      id="programa-semente"
-      className="relative texture-paper texture-botanic-accent py-24 md:py-36 overflow-hidden"
-    >
-      <div className="container mx-auto px-6 md:px-12 relative">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 mb-8 text-olive-700 text-xs uppercase tracking-[0.25em] font-pixel">
-            <Sprout className="w-3 h-3" />
-            <span>Tempo de Cuidar</span>
-          </div>
-
-          <div className="inline-flex items-center gap-3 px-5 py-3 mb-10 bg-olive-900 text-cream-100 rounded-sm shadow-xl animate-fade-in-up">
-            <Calendar className="w-4 h-4" />
-            <span className="font-pixel text-xs md:text-sm uppercase tracking-[0.2em]">
-              Inscri&ccedil;&otilde;es abrem em 1&ordm; de Julho
-            </span>
-          </div>
-
-          <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-olive-900 mb-8 text-balance">
-            <span className="font-gothic">Em breve</span>{' '}
-            <span className="italic font-light">voc&ecirc; far&aacute;</span>
-            <br />
-            sua inscri&ccedil;&atilde;o.
-          </h2>
-
-          <div className="relative bg-cream-50/70 backdrop-blur-sm border border-olive-700/15 rounded-sm p-8 md:p-12 text-left shadow-xl">
-            <div className="absolute -top-3 -left-3 bg-olive-700 text-cream-100 px-3 py-1.5 font-pixel text-[10px] uppercase tracking-[0.2em] rotate-[-3deg] shadow-md">
-              aviso
-            </div>
-
-            <div className="space-y-5 font-serif font-medium text-lg md:text-xl text-olive-900 leading-relaxed">
-              <p>
-                As inscri&ccedil;&otilde;es para a campanha{' '}
-                <span className="bg-olive-700 text-cream-100 px-2 py-0.5 italic font-semibold">
-                  Tempo de Cuidar
-                </span>{' '}
-                estar&atilde;o dispon&iacute;veis a partir do dia{' '}
-                <strong className="font-semibold">1&ordm; de Julho</strong>.
-              </p>
-              <p>
-                Você poderá inscrever sua{' '}
-                <span className="italic underline decoration-olive-700/40 underline-offset-4">
-                  igreja, seu pequeno grupo, célula, ou grupo universitário
-                </span>{' '}
-                diretamente por esta página.
-              </p>
-              <p className="text-olive-900/85">
-                Enquanto isso, j&aacute; estamos compartilhando conte&uacute;dos, novidades e
-                informa&ccedil;&otilde;es sobre a campanha em nossas redes sociais. Acompanhe e
-                fique por dentro das pr&oacute;ximas atualiza&ccedil;&otilde;es.
-              </p>
-            </div>
-
-            <div className="mt-10 pt-6 border-t border-olive-700/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="flex items-center gap-3 text-olive-700">
-                <Clock className="w-4 h-4" />
-                <span className="font-pixel text-xs uppercase tracking-[0.2em]">
-                  Data de abertura
-                </span>
-              </div>
-              <div className="font-pixel text-olive-900 text-3xl md:text-5xl">
-                01jul.
-              </div>
-            </div>
-          </div>
-
-          <p className="font-serif italic text-olive-900/65 mt-8 text-sm md:text-base">
-            Volte aqui em julho ou siga as redes sociais para o aviso oficial.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// =================================================================
 // FOOTER
 // =================================================================
 const Footer = () => (
@@ -728,7 +641,6 @@ const App = () => {
       <Hero />
       <ClimateSection />
       <QuemSomos />
-      <ProgramaSementeSection />
       <FormSection onCompleted={handleFormCompleted} />
       <DownloadsSection visible={downloadsVisible} />
       <Footer />

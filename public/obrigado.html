@@ -7,7 +7,14 @@
   </head>
   <body>
     <script>
-      window.parent.postMessage('soma-form-enviado', 'https://movimentosoma.com');
+      const targetOrigin = 'https://movimentosoma.com';
+
+      if (window.parent !== window) {
+        window.parent.postMessage('soma-form-enviado', targetOrigin);
+      } else {
+        sessionStorage.setItem('soma-form-enviado', 'true');
+        window.location.replace('/?form=enviado');
+      }
     </script>
   </body>
 </html>

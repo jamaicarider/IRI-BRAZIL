@@ -432,11 +432,29 @@ const FormSection = ({ onCompleted }) => {
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const submittedFromRedirect = params.get('form') === 'enviado';
+    let submittedFromSession = false;
+
+    try {
+      submittedFromSession = sessionStorage.getItem('soma-form-enviado') === 'true';
+    } catch (e) {}
+
+    if (submittedFromRedirect || submittedFromSession) {
+      setFormSubmitted(true);
+      if (submittedFromRedirect) {
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    }
+
     const handler = (e) => {
       if (typeof e.origin !== 'string') return;
 
       if (e.origin === 'https://movimentosoma.com' && e.data === 'soma-form-enviado') {
         setFormSubmitted(true);
+        try {
+          sessionStorage.setItem('soma-form-enviado', 'true');
+        } catch (e) {}
         return;
       }
 

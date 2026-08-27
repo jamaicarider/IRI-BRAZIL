@@ -446,35 +446,6 @@ const FormSection = ({ onCompleted }) => {
         window.history.replaceState({}, document.title, window.location.pathname);
       }
     }
-
-    const handler = (e) => {
-      if (typeof e.origin !== 'string') return;
-
-      if (e.origin === 'https://movimentosoma.com' && e.data === 'soma-form-enviado') {
-        setFormSubmitted(true);
-        try {
-          sessionStorage.setItem('soma-form-enviado', 'true');
-        } catch (e) {}
-        return;
-      }
-
-      if (!e.origin.includes('monday.com')) return;
-
-      const data = e.data;
-      const dataStr = typeof data === 'string' ? data : JSON.stringify(data || {});
-
-      if (
-        dataStr.includes('submitted') ||
-        dataStr.includes('form-submission') ||
-        dataStr.includes('formSubmitted') ||
-        dataStr.includes('SUBMIT') ||
-        (data && (data.type === 'submitted' || data.event === 'submitted'))
-      ) {
-        trackEvent('form_completed', { method: 'monday_postmessage' });
-      }
-    };
-    window.addEventListener('message', handler);
-    return () => window.removeEventListener('message', handler);
   }, [onCompleted]);
 
   return (
